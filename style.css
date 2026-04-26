@@ -1,0 +1,366 @@
+/* ============================================
+   MARIO ROSSI ARCHITETTO — Static Site CSS
+   ============================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: #ffffff;
+  color: #000000;
+  font-family: 'JetBrains Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: #000; color: #fff; }
+
+a { color: inherit; text-decoration: none; }
+
+img { display: block; max-width: 100%; }
+
+/* ---- SHELL ---- */
+.shell {
+  min-height: 100vh;
+  background: #fff;
+  background-image: radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* ---- TOP BAR ---- */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: #fff;
+  border-bottom: 1px solid #000;
+}
+.top-bar-inner {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  margin-left: -8px;
+  transition: background 0.15s, color 0.15s;
+}
+.brand-link:hover { background: #000; color: #fff; }
+.nfc-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.6);
+}
+
+/* ---- MAIN ---- */
+.main-content {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 6rem;
+}
+@media (min-width: 640px) {
+  .main-content { padding: 4rem 2rem 6rem; }
+  .top-bar-inner { padding: 0 2rem; }
+}
+
+/* ---- FOOTER ---- */
+.page-footer { border-top: 1px solid #000; }
+.footer-inner {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (min-width: 640px) { .footer-inner { padding: 1.5rem 2rem; } }
+
+/* ---- GRID ---- */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.75rem;
+}
+.col-12 { grid-column: span 12; }
+.col-9  { grid-column: span 12; }
+.col-8  { grid-column: span 12; }
+.col-6  { grid-column: span 6; }
+.col-3  { grid-column: span 12; }
+@media (min-width: 640px) {
+  .col-9 { grid-column: span 9; }
+  .col-8 { grid-column: span 8; }
+  .col-3 { grid-column: span 3; }
+  .col-right { text-align: right; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; gap: 4px; }
+}
+
+/* ---- TYPOGRAPHY UTILITIES ---- */
+.mono-10  { font-size: 10px; letter-spacing: 0.22em; font-family: 'JetBrains Mono', monospace; }
+.mono-12  { font-size: 12px; letter-spacing: 0.18em; font-family: 'JetBrains Mono', monospace; }
+.mono-14  { font-size: 14px; font-family: 'JetBrains Mono', monospace; }
+.uppercase { text-transform: uppercase; }
+.leading-relaxed { line-height: 1.625; }
+.text-muted { color: rgba(0,0,0,0.6); }
+.text-muted-80 { color: rgba(0,0,0,0.8); }
+.italic { font-style: italic; }
+.text-right { text-align: right; }
+
+/* ---- LAYOUT UTILS ---- */
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.mt-1  { margin-top: 4px; }
+.mt-3  { margin-top: 12px; }
+.mt-4  { margin-top: 1rem; }
+.mt-6  { margin-top: 1.5rem; }
+.mt-10 { margin-top: 2.5rem; }
+.mt-14 { margin-top: 3.5rem; }
+.mt-16 { margin-top: 4rem; }
+.mt-20 { margin-top: 5rem; }
+.mt-24 { margin-top: 6rem; }
+.mb-6  { margin-bottom: 1.5rem; }
+.mb-8  { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.pt-4  { padding-top: 1rem; }
+
+.divider { border-top: 1px solid #000; }
+.border-top { border-top: 1px solid #000; }
+.hide-mobile { display: none; }
+@media (min-width: 640px) { .hide-mobile { display: inline; } }
+
+/* ---- HERO ---- */
+.hero-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  font-size: clamp(4rem, 15vw, 5rem);
+  text-transform: uppercase;
+}
+@media (min-width: 640px) { .hero-name { font-size: 4.5rem; } }
+
+/* ---- PAGE TITLE ---- */
+.page-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+@media (min-width: 640px) { .page-title { font-size: 4.5rem; } }
+
+/* ---- BACK LINK ---- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  transition: background 0.15s, color 0.15s;
+}
+.back-link:hover { background: #000; color: #fff; }
+
+/* ---- ACTION ROWS ---- */
+.actions-list { display: flex; flex-direction: column; gap: 12px; }
+.action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #000;
+  background: #fff;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.action-row:hover { background: #000; color: #fff; }
+.action-row:hover .action-sub { color: rgba(255,255,255,0.6); }
+.action-row:hover .action-icon { border-color: #fff; }
+.action-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+.action-icon {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+.action-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.action-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.6);
+  transition: color 0.2s;
+}
+.arrow-icon { flex-shrink: 0; }
+
+/* ---- TIMELINE ---- */
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid #000;
+}
+@media (min-width: 640px) {
+  .timeline-item {
+    grid-template-columns: 3fr 9fr;
+    gap: 1.5rem;
+    padding: 2.25rem 0;
+  }
+}
+.timeline-left { display: flex; flex-direction: column; }
+.timeline-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+@media (min-width: 640px) { .timeline-title { font-size: 1.75rem; } }
+.timeline-meta {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.max-w-2xl { max-width: 42rem; }
+
+/* ---- PROJECTS GRID ---- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: #000;
+  border: 1px solid #000;
+}
+@media (min-width: 640px) { .projects-grid { grid-template-columns: 1fr 1fr; } }
+
+.project-card {
+  background: #fff;
+  padding: 1.25rem;
+  transition: background 0.3s;
+}
+.project-card:hover { background: #f4f4f4; }
+.project-card:hover .project-img {
+  filter: grayscale(0);
+  transform: scale(1.02);
+}
+
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.project-img-wrap {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border: 1px solid #000;
+  margin-bottom: 1.25rem;
+}
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: filter 0.7s, transform 0.7s;
+}
+
+.project-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.75rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+@media (min-width: 640px) { .project-title { font-size: 2rem; } }
+
+/* ---- STATUS BADGES ---- */
+.status-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border: 1px solid #000;
+  padding: 4px 8px;
+}
+.status-ongoing { background: #000; color: #fff; border-color: #000; }
+.status-done    { background: #fff; color: #000; border-color: #000; }
+.status-concept { background: #fff; color: #000; border-color: #000; }
+
+/* ---- PROJECT META ---- */
+.project-meta {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 1rem;
+  border-top: 1px solid #000;
+  padding-top: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.meta-pair { display: flex; justify-content: space-between; }
+
+/* ---- INLINE LINK ---- */
+.inline-link {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding: 0 4px;
+  transition: background 0.15s, color 0.15s;
+}
+.inline-link:hover { background: #000; color: #fff; }
+
+/* ---- ANIMATIONS ---- */
+@keyframes brutal-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-rise { animation: brutal-rise 0.5s ease-out both; }
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.12s; }
+.delay-3 { animation-delay: 0.20s; }
+.delay-7 { animation-delay: 0.52s; }
