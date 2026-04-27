@@ -151,7 +151,7 @@ img { display: block; max-width: 100%; }
   font-weight: 300;
   line-height: 0.92;
   letter-spacing: -0.03em;
-  font-size: 4rem;
+  font-size: 3.5rem;
   text-transform: uppercase;
 }
 @media (min-width: 640px) { .page-title { font-size: 4.5rem; } }
