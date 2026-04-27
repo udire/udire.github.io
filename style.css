@@ -140,7 +140,7 @@ img { display: block; max-width: 100%; }
   font-weight: 300;
   line-height: 0.92;
   letter-spacing: -0.03em;
-  font-size: clamp(3rem, 5vw, 5rem);
+  font-size: clamp(3.5rem, 15vw, 5rem);
   text-transform: uppercase;
 }
 @media (min-width: 640px) { .hero-name { font-size: 4.5rem; } }
