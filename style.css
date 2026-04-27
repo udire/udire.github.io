@@ -154,7 +154,7 @@ img { display: block; max-width: 100%; }
   font-size: 3.5rem;
   text-transform: uppercase;
 }
-@media (min-width: 640px) { .page-title { font-size: 4.5rem; } }
+@media (min-width: 640px) { .page-title { font-size: 3.5rem; } }
 
 /* ---- BACK LINK ---- */
 .back-link {
