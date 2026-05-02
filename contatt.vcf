@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iPhone OS 26.0//EN
+N:Mastandrea;Marco;;;
+FN:Marco Mastandrea
+TITLE:Architetto
+item1.EMAIL;type=INTERNET;type=pref:ma.marcomasta@gmail.com
+item1.X-ABLabel:e-mail
+TEL;type=CELL;type=VOICE;type=pref:+39 331 1483809
+END:VCARD
