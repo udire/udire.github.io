@@ -227,7 +227,7 @@
       transition: background 0.2s;
     }
     .servizi-row:last-child { border-bottom: none; }
-    .servizi-row:hover { background: #f4f4f4; }
+    .servizi-row:hover { background: #f4f4f4;}
     @media (min-width: 540px) {
       .servizi-row {
         grid-template-columns: 200px 1fr;
@@ -239,7 +239,10 @@
       background: rgba(192,192,192,0.3);
       color: #000;
     }
-    .servizi-row-highlight:hover { background: #111; color: #fff}
+    .servizi-row-highlight:hover { 
+      background: #111; 
+      color: #fff;
+    }
     .servizi-row-left {
       display: flex;
       align-items: baseline;
@@ -267,6 +270,7 @@
       padding: 3px 7px;
       opacity: 0.7;
     }
+    .servizi-desc:hover {color: #fff;}
     .servizi-desc {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
