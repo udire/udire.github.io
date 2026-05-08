@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuratore Cucina — Mario Rossi Architetto</title>
+  <title>Configuratore Cucina — UDIRE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -91,7 +91,7 @@
   <div class="shell">
     <header class="top-bar">
       <div class="top-bar-inner">
-        <a href="index.html" class="brand-link">M. ROSSI / ARCHITETTO</a>
+        <a href="index.html" class="brand-link">UDIRE</a>
         <span class="nfc-tag">CONFIGURATORE</span>
       </div>
     </header>
@@ -125,7 +125,7 @@
         <!-- STEP 0 FORMA -->
         <div class="step-panel active" id="step-0">
           <div class="step-label">01 / Forma</div>
-          <h2 class="step-question">Quale <span class="italic">forma</span> preferisci?</h2>
+          <h2 class="step-question">Quale forma preferisci?</h2>
           <p class="step-hint">La forma determina il layout generale e il numero di pareti utilizzate.</p>
           <div class="options-grid">
             <div class="option-card" data-step="0" data-value="lineare" onclick="selectOption(this)">
@@ -186,7 +186,7 @@
         <!-- STEP 1 ISOLA -->
         <div class="step-panel" id="step-1">
           <div class="step-label">02 / Isola</div>
-          <h2 class="step-question">Vuoi un'<span class="italic">isola</span>?</h2>
+          <h2 class="step-question">Vuoi un'isola?</h2>
           <p class="step-hint">L'isola richiede almeno 90 cm di passaggio libero su tutti i lati.</p>
           <div class="options-grid">
             <div class="option-card" data-step="1" data-value="si" onclick="selectOption(this)">
@@ -223,18 +223,18 @@
         <!-- STEP 2 MISURE -->
         <div class="step-panel" id="step-2">
           <div class="step-label">03 / Misure</div>
-          <h2 class="step-question">Lunghezza della <span class="italic">parete</span>?</h2>
+          <h2 class="step-question">Lunghezza della parete?</h2>
           <p class="step-hint">Inserisci il valore in centimetri. Per cucine ad "L" o "C" inserisci prima la parete principale (più lunga).</p>
           <div class="cfg-input-wrap">
-            <input type="number" class="cfg-input" id="wall-length" placeholder="es. 300" min="60" max="1000" oninput="checkSpaceWarning()"/>
+            <input type="number" class="cfg-input" id="wall-length" placeholder="es. 300 cm" min="60" max="1000" oninput="checkSpaceWarning()"/>
             <div class="cfg-input-unit">cm — parete principale</div>
           </div>
           <div class="cfg-input-wrap" id="wall2-wrap" style="display:none">
-            <input type="number" class="cfg-input" id="wall-length-2" placeholder="es. 200" min="60" max="1000"/>
+            <input type="number" class="cfg-input" id="wall-length-2" placeholder="es. 200 cm" min="60" max="1000"/>
             <div class="cfg-input-unit">cm — parete secondaria</div>
           </div>
           <div id="warn-space" class="cfg-warning">
-            ⚠ Lo spazio disponibile è inferiore ai moduli standard (270 cm). Il lavello sarà da <strong>80 cm</strong> anziché 90 cm, con un margine di tolleranza di ±5 cm sui lati. Verifica con il falegname prima di procedere.
+            ⚠ Lo spazio disponibile è inferiore ai moduli standard. Valuta l'opzione di scegliere un lavello di dimensioni ridotte, come <strong>80 o 70 cm</strong> anziché 90 cm.
           </div>
           <div class="cfg-nav">
             <button class="cfg-btn" onclick="prevStep()">← Precedente</button>
@@ -246,7 +246,7 @@
         <!-- STEP 3 SCARICO -->
         <div class="step-panel" id="step-3">
           <div class="step-label">04 / Impianti</div>
-          <h2 class="step-question">Posizione dello <span class="italic">scarico</span>?</h2>
+          <h2 class="step-question">Posizione dello scarico?</h2>
           <p class="step-hint">Il lavello verrà centrato sullo scarico esistente. Indica la distanza e da quale lato è misurata.</p>
           <div style="background:#f5f5f5;border:1px solid #ddd;padding:1rem;margin-bottom:1.5rem;display:flex;justify-content:center;">
             <svg width="260" height="72" viewBox="0 0 260 72">
@@ -292,7 +292,7 @@
         <!-- STEP 4 FORNO -->
         <div class="step-panel" id="step-4">
           <div class="step-label">05 / Elettrodomestici</div>
-          <h2 class="step-question">Posizione del <span class="italic">forno</span>?</h2>
+          <h2 class="step-question">Posizione del forno?</h2>
           <p class="step-hint">In basso è la soluzione classica. In alto in colonna è più ergonomico — il forno fa parte di una colonna a tutta altezza separata dal piano cottura.</p>
           <div class="options-grid">
             <div class="option-card" data-step="4" data-value="basso" onclick="selectOption(this)">
@@ -324,14 +324,16 @@
                   <rect x="13" y="13" width="40" height="33" class="kitchen-stroke"/>
                   <line x1="13" y1="29" x2="53" y2="29" class="kitchen-stroke"/>
                   <circle cx="33" cy="22" r="7" class="kitchen-stroke"/>
-                  <!-- base piano cottura (destra, più bassa) -->
+                  <!-- base piano cottura (destra, più bassa) -->  
+          <!--
                   <rect x="65" y="30" width="57" height="62" class="kitchen-stroke"/>
                   <rect x="67" y="32" width="53" height="20" class="kitchen-stroke"/>
                   <circle cx="79" cy="42" r="4" class="kitchen-stroke"/>
                   <circle cx="93" cy="42" r="4" class="kitchen-stroke"/>
                   <circle cx="107" cy="42" r="4" class="kitchen-stroke"/>
                   <text x="33" y="97" text-anchor="middle" font-family="monospace" font-size="7" class="kitchen-stroke" stroke-width="0.3" fill="#888">COLONNA</text>
-                  <text x="93" y="97" text-anchor="middle" font-family="monospace" font-size="7" class="kitchen-stroke" stroke-width="0.3" fill="#888">COTTURA</text>
+                  <text x="93" y="97" text-anchor="middle" font-family="monospace" font-size="7" class="kitchen-stroke" stroke-width="0.3" fill="#888">COTTURA</text> 
+          -->
                 </svg>
               </div>
               <div class="option-label">In alto</div>
@@ -348,7 +350,7 @@
         <!-- STEP 5 FRIGO -->
         <div class="step-panel" id="step-5">
           <div class="step-label">06 / Frigorifero</div>
-          <h2 class="step-question">Come vuoi il <span class="italic">frigorifero</span>?</h2>
+          <h2 class="step-question">Come vuoi il frigorifero?</h2>
           <p class="step-hint">Il frigo integrato è nascosto dietro uno sportello; quello esterno è a sé. In entrambi i casi il frigo sarà posizionato all'estremità della cucina, a contatto con il muro.</p>
           <div class="options-grid">
             <div class="option-card" data-step="5" data-value="integrato" onclick="selectOption(this)">
@@ -390,7 +392,7 @@
         <!-- STEP 6 PENSILI -->
         <div class="step-panel" id="step-6">
           <div class="step-label">07 / Pensili</div>
-          <h2 class="step-question">Vuoi i <span class="italic">pensili</span>?</h2>
+          <h2 class="step-question">Vuoi i pensili?</h2>
           <p class="step-hint">I pensili aggiungono spazio ma possono appesantire visivamente la cucina.</p>
           <div class="options-list">
             <button class="option-btn" data-step="6" data-value="come_sotto" onclick="selectOptionBtn(this)">
@@ -416,7 +418,7 @@
         <!-- STEP 7 MATERIALE -->
         <div class="step-panel" id="step-7">
           <div class="step-label">08 / Materiali</div>
-          <h2 class="step-question">Materiale della <span class="italic">cassa</span>?</h2>
+          <h2 class="step-question">Materiale delle casse?</h2>
           <p class="step-hint">La cassa è la struttura portante. Il listellare è più resistente all'umidità e alle deformazioni nel tempo.</p>
           <div class="options-grid">
             <div class="option-card" data-step="7" data-value="listellare" onclick="selectOption(this)">
@@ -459,7 +461,7 @@
         <!-- STEP 8 SPORTELLI -->
         <div class="step-panel" id="step-8">
           <div class="step-label">09 / Sportelli</div>
-          <h2 class="step-question">Sportelli <span class="italic">laccati RAL</span></h2>
+          <h2 class="step-question">Sportelli laccati RAL</h2>
           <p class="step-hint">Scegli il colore RAL desiderato, poi lo stile dello sportello.</p>
           <div class="color-name-display" id="color-display">
             <div class="color-preview-dot" id="color-dot" style="background:#F5F5F0"></div>
@@ -486,8 +488,8 @@
 
         <!-- RISULTATO -->
         <div class="result-panel" id="result-panel">
-          <h2 class="result-header">Ri<span class="italic">chiesta</span><br>Falegname</h2>
-          <p class="step-hint" style="margin-top:0.5rem">Riepilogo configurazione — da consegnare al falegname.</p>
+          <h2 class="result-header">Riepilogo configurazione</h2>
+          <p class="step-hint" style="margin-top:0.5rem">Qui sono contenute le informazioni utilizzate dal falegname come punto di partenza per il tuo progetto.</p>
           <div class="result-section">
             <div class="result-section-title">Riepilogo scelte</div>
             <div id="summary-body"></div>
@@ -516,8 +518,8 @@
     </main>
     <footer class="page-footer">
       <div class="footer-inner">
-        <span class="mono-10 uppercase">© 2026 Rossi Architetti</span>
-        <span class="mono-10 text-muted uppercase">Milano · IT</span>
+        <span class="mono-10 uppercase">© 2026 Marco Mastandrea Architetto</span>
+        <span class="mono-10 text-muted uppercase">CAPACCIO PAESTUM · IT</span>
       </div>
     </footer>
   </div>
