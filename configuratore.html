@@ -726,7 +726,7 @@
     document.getElementById('items-body').innerHTML=items.map(i=>`<div class="result-item"><span class="result-qty">${i.qty}×</span><div><div class="result-desc">${i.desc}</div><div class="result-note">${i.note}</div></div></div>`).join('');
   }
   function labelMap(key,val){
-    const maps={forma:{lineare:'Lineare (1 parete)',L:'A "L" (2 pareti)',C:'A "C" (3 pareti)'},isola:{si:'Sì — con isola',no:'No'},forno:{basso:'In basso, sotto piano cottura',alto:'In alto, in colonna'},frigo:{integrato:'Integrato nella cassa',esterno:'Esterno'},pensili:{come_sotto:'Sì — come moduli sotto',qualsiasi:'Sì — libera',no:'No'},materiale:{listellare:'Listellare (superiore)',truciolare:'Truciolare (standard)'},sportello:{lavorazioni:'Con lavorazioni',liscio:'Liscio / minimal'}};
+    const maps={forma:{lineare:'Lineare (su 1 parete)',L:'A "L" (su 2 pareti)',C:'A "C" (su 3 pareti)'},isola:{si:'Sì, con isola',no:'No'},forno:{basso:'In basso, sotto piano cottura',alto:'In alto, in colonna'},frigo:{integrato:'Integrato nella cassa',esterno:'Esterno'},pensili:{come_sotto:'Sì, come moduli sotto',qualsiasi:'Sì, disposizione libera',no:'No'},materiale:{listellare:'Listellare',truciolare:'Truciolare'},sportello:{lavorazioni:'Con lavorazioni',liscio:'Liscio minimal'}};
     return (maps[key]&&maps[key][val])||val||'—';
   }
 
