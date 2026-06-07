@@ -122,7 +122,7 @@ window.PROGETTI_DATA = [
     "phases": [
       {
         "name": "Brief",
-        "status": "completata",
+        "status": "in_corso",
         "description": "Raccolta delle esigenze, sopralluogo e definizione del programma funzionale.",
         "progress": 10
       },
