@@ -169,6 +169,6 @@ window.PROGETTI_DATA = [
         "description": "Di tanto in tanto il sottoscritto, unitamente alla committente, si inoltrano reel carini. Sarà cura del progettista riconoscere la qualità architettonica dei manufatti senza confondersi con l'aesthetic di IG."
       },
     ]
-  }
+  },
 
 ];
