@@ -15,7 +15,7 @@ window.PROGETTI_DATA = [
 
   {
     "codice": "VR2026",
-    "projectName": "Smeralda apartment",
+    "projectName": "Test apartment",
     "client": "Chiara e Simone",
     "status": "In corso",
     "lastUpdate": "2026-06-07",
