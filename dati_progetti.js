@@ -113,7 +113,7 @@ window.PROGETTI_DATA = [
 
   
   {
-    "codice": "MMASBUBAMIAOMIAO",
+    "codice": "MMASBUBA",
     "projectName": "Residenza monofamiliare",
     "client": "mm",
     "status": "In corso",
@@ -159,7 +159,7 @@ window.PROGETTI_DATA = [
     ],
     "updates": [
        {
-        "date": "2026-05-03",
+        "date": "2026-05-13",
         "title": "Avvio progetto",
         "description": "Prima riunione con il cliente. Definiti i requisiti principali, il budget di riferimento e la tempistica indicativa del progetto."
       },
