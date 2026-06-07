@@ -153,7 +153,7 @@
     .ph-info-value { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
 
     .status-badge {
-      display: inline-block; border: 1px solid var(--black);
+      display: inline-block; border: 1px solid royalblue; color: royalblue;
       padding: 4px 10px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
     }
     .status-badge.completato { background: var(--black); color: var(--white); }
@@ -170,25 +170,25 @@
     .timeline-h-outer { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
     .timeline-h {
       display: flex; align-items: stretch; gap: 0;
-      min-width: 560px; border: 1px solid var(--black);
+      min-width: 560px; border: 1px solid royalblue;
     }
 
     .tl-phase {
       flex: 1; display: flex; flex-direction: column;
-      border-right: 1px solid var(--black); cursor: default;
+      border-right: 1px solid royalblue; cursor: default;
     }
     .tl-phase:last-child { border-right: none; }
 
     .tl-bar {
-      height: 6px; transition: background 0.3s;
+      height: 10px; transition: background 0.3s;
     }
-    .tl-phase.completata  .tl-bar { background: var(--blue-dark); }
-    .tl-phase.in_corso    .tl-bar { animation: pulse-blue 1.8s ease-in-out infinite; }
-    .tl-phase.non_iniziata .tl-bar { background: var(--gray-200); }
+    .tl-phase.completata  .tl-bar { background: var(--blue-dark); color: red;}
+    .tl-phase.in_corso    .tl-bar { animation: pulse-blue 1.8s ease-in-out infinite; color: yellow;}
+    .tl-phase.non_iniziata .tl-bar { background: var(--gray-200); color: blue;}
 
     .tl-body { padding: 12px 12px 14px; flex: 1; }
     .tl-num  { font-size: 9px; letter-spacing: 0.2em; color: var(--gray-400); margin-bottom: 6px; }
-    .tl-name { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.4; font-weight: 700; }
+    .tl-name { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.4; font-weight: 700; color: royalblue;}
 
     .tl-status-row { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
     .tl-check {
@@ -215,11 +215,11 @@
 
     /* ── CURRENT PHASE CARD ── */
     .phase-card {
-      border: 1px solid var(--black); margin-top: 1.5rem;
+      border: 1px solid royalblue; margin-top: 1.5rem;
     }
     .phase-card-top {
       padding: 12px 18px;
-      background: var(--black); color: var(--white);
+      background: royalblue; color: var(--white);
       display: flex; align-items: center; justify-content: space-between;
     }
     .phase-card-label { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.6; }
@@ -234,7 +234,7 @@
       height: 4px; background: var(--gray-200); position: relative; overflow: hidden;
     }
     .progress-bar-fill {
-      height: 100%; background: var(--blue-mid);
+      height: 100%; background: royalblue;
       transition: width 1s cubic-bezier(0.4,0,0.2,1);
       position: relative;
     }
@@ -308,7 +308,7 @@
   <!-- TOP BAR -->
   <header class="top-bar">
     <div class="top-bar-inner">
-      <span class="brand">M. ROSSI / ARCHITETTO</span>
+      <span class="brand">M. MASTANDREA / ARCHITETTO</span>
       <span class="top-label" id="top-label">Area Cliente</span>
     </div>
   </header>
@@ -342,8 +342,8 @@
         </button>
       </div>
       <div class="login-footer rise rise-4">
-        <span class="mono-10 muted">© 2026 Rossi Architetti</span>
-        <span class="mono-10 muted">Milano · IT</span>
+        <span class="mono-10 muted">© 2026 Marco Mastandrea Architetto</span>
+        <span class="mono-10 muted">Capaccio Paestum · IT</span>
       </div>
     </div>
   </div>
@@ -452,7 +452,7 @@
       <div class="section-wrap rise rise-6" style="margin-top:4rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem">
         <div style="border-top:1px solid #000;padding-top:1rem">
           <div class="mono-10 muted">Studio</div>
-          <div class="mono-12" style="margin-top:4px">ROSSI ARCHITETTI</div>
+          <div class="mono-12" style="margin-top:4px">MARCO MASTANDREA ARCHITETTO</div>
         </div>
         <div style="border-top:1px solid #000;padding-top:1rem;text-align:right">
           <div class="mono-10 muted">Portale Cliente</div>
@@ -466,8 +466,8 @@
   <!-- FOOTER -->
   <footer class="page-footer">
     <div class="footer-inner">
-      <span class="mono-10">© 2026 Rossi Architetti</span>
-      <span class="mono-10 muted">Milano · IT</span>
+      <span class="mono-10">© 2026 Marco Mastandrea Architetto</span>
+      <span class="mono-10 muted">Capaccio Paestum · IT</span>
     </div>
   </footer>
 
