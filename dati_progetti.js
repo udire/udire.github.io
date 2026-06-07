@@ -109,7 +109,7 @@ window.PROGETTI_DATA = [
         "description": "Tutti gli elaborati finali sono stati consegnati e approvati. Il progetto è ufficialmente chiuso."
       }
     ]
-  }
+  },
 
   
   {
