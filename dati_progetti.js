@@ -111,4 +111,64 @@ window.PROGETTI_DATA = [
     ]
   }
 
+  
+  {
+    "codice": "MMASBUBAMIAOMIAO",
+    "projectName": "Residenza monofamiliare",
+    "client": "mm",
+    "status": "In corso",
+    "lastUpdate": "2026-06-07",
+    "location": "Capaccio Paestum, IT",
+    "phases": [
+      {
+        "name": "Brief",
+        "status": "completata",
+        "description": "Raccolta delle esigenze, sopralluogo e definizione del programma funzionale.",
+        "progress": 10
+      },
+      {
+        "name": "Concept",
+        "status": "non_iniziata",
+        "description": "Elaborazione delle prime idee progettuali, moodboard e schemi distributivi.",
+        "progress": 0
+      },
+      {
+        "name": "Sviluppo Progetto",
+        "status": "non_iniziata",
+        "description": "Definizione delle soluzioni architettoniche, materiali, layout degli spazi interni ed esterni. Coordinamento con i consulenti strutturali e impiantistici.",
+        "progress": 0
+      },
+      {
+        "name": "Revisione Cliente",
+        "status": "non_iniziata",
+        "description": "Presentazione del progetto definitivo al cliente per approvazione e eventuali modifiche.",
+        "progress": 0
+      },
+      {
+        "name": "Elaborati Finali",
+        "status": "non_iniziata",
+        "description": "Produzione di tutti gli elaborati tecnici: piante, sezioni, prospetti, dettagli costruttivi e computo metrico.",
+        "progress": 0
+      },
+      {
+        "name": "Consegna",
+        "status": "non_iniziata",
+        "description": "Consegna degli elaborati finali, assistenza alla direzione lavori e chiusura del progetto.",
+        "progress": 0
+      }
+    ],
+    "updates": [
+       {
+        "date": "2026-05-03",
+        "title": "Avvio progetto",
+        "description": "Prima riunione con il cliente. Definiti i requisiti principali, il budget di riferimento e la tempistica indicativa del progetto."
+      },
+      {
+        "date": "2026-05-10",
+        "title": "Ricerca riferimenti",
+        "description": "Di tanto in tanto il sottoscritto, unitamente alla committente, si inoltrano reel carini. Sarà cura del progettista riconoscere la qualità architettonica dei manufatti senza confondersi con l'aesthetic di IG."
+      },
+    ]
+  }
+
 ];
