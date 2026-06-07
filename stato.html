@@ -153,7 +153,7 @@
     .ph-info-value { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
 
     .status-badge {
-      display: inline-block; border: 1px solid var(--blue-dark); color: white;
+      display: inline-block; border: 1px solid var(--blue-dark);
       padding: 4px 10px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
     }
     .status-badge.completato { background: var(--blue-dark); color: var(--white); }
@@ -209,9 +209,17 @@
     .tl-status-label {
       font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
     }
-    .tl-phase.completata   .tl-status-label { color: var(--blue-dark); }
-    .tl-phase.in_corso     .tl-status-label { color: var(--blue-mid); }
-    .tl-phase.non_iniziata .tl-status-label { color: var(--gray-400); }
+.tl-phase.completata   .tl-status-label,
+.tl-phase.completata   .tl-name,
+.tl-phase.completata   .tl-num  { color: var(--blue-dark); }
+
+.tl-phase.in_corso     .tl-status-label,
+.tl-phase.in_corso     .tl-name,
+.tl-phase.in_corso     .tl-num  { color: var(--blue-mid); }
+
+.tl-phase.non_iniziata .tl-status-label,
+.tl-phase.non_iniziata .tl-name,
+.tl-phase.non_iniziata .tl-num  { color: var(--gray-400); }
 
     /* ── CURRENT PHASE CARD ── */
     .phase-card {
@@ -222,7 +230,7 @@
       background: royalblue; color: var(--white);
       display: flex; align-items: center; justify-content: space-between;
     }
-    .phase-card-label { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.6; }
+    .phase-card-label { font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; }
     .phase-card-name  { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; }
     .phase-card-pct   { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 300; letter-spacing: -0.02em; }
 
