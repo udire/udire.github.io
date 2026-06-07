@@ -1,5 +1,5 @@
 // ============================================================
-//  DATI PROGETTI — Rossi Architetti
+//  DATI PROGETTI — Marco Mastandrea Architetto
 //  Modifica questo file per aggiornare lo stato dei progetti.
 //
 //  STATI FASE:
@@ -15,11 +15,11 @@ window.PROGETTI_DATA = [
 
   {
     "codice": "VR2026",
-    "projectName": "Villa Rossi",
-    "client": "Mario e Lucia Rossi",
+    "projectName": "Smeralda apartment",
+    "client": "Chiara e Simone",
     "status": "In corso",
     "lastUpdate": "2026-06-07",
-    "location": "Milano, IT",
+    "location": "Capaccio Paestum, IT",
     "phases": [
       {
         "name": "Brief",
