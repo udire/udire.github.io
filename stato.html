@@ -612,8 +612,8 @@
     const first = names[0];
     const rest  = names.slice(1).join(' ');
     document.getElementById('ph-name').innerHTML = rest
-      ? `${first}<br><em>${rest}</em>`
-      : `<em>${first}</em>`;
+      ? `${first}<br>${rest}`
+      : `${first}`;
 
     document.getElementById('ph-section').textContent = `Scheda progetto`;
     document.getElementById('ph-code').textContent = `COD. ${proj.codice}`;
