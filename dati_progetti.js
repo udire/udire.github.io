@@ -14,11 +14,11 @@
 window.PROGETTI_DATA = [
 
   {
-    "codice": "VR2026",
-    "projectName": "Test apartment",
+    "codice": "CS2026APP",
+    "projectName": "Progetto di interni per un appartamento di ≈90mq",
     "client": "Chiara e Simone",
     "status": "In corso",
-    "lastUpdate": "2026-06-07",
+    "lastUpdate": "2026-05-28",
     "location": "Capaccio Paestum, IT",
     "phases": [
       {
@@ -29,15 +29,15 @@ window.PROGETTI_DATA = [
       },
       {
         "name": "Concept",
-        "status": "completata",
+        "status": "in_corso",
         "description": "Elaborazione delle prime idee progettuali, moodboard e schemi distributivi.",
-        "progress": 100
+        "progress": 40
       },
       {
         "name": "Sviluppo Progetto",
-        "status": "in_corso",
+        "status": "non_iniziata",
         "description": "Definizione delle soluzioni architettoniche, materiali, layout degli spazi interni ed esterni. Coordinamento con i consulenti strutturali e impiantistici.",
-        "progress": 65
+        "progress": 0
       },
       {
         "name": "Revisione Cliente",
@@ -60,29 +60,19 @@ window.PROGETTI_DATA = [
     ],
     "updates": [
       {
-        "date": "2026-06-07",
-        "title": "Aggiornamento materiali facciata",
-        "description": "Sono stati definiti i materiali principali per la facciata esterna: calcestruzzo a vista per la struttura e rivestimento in pietra locale per il basamento. Aggiornati i render esterni di conseguenza."
-      },
-      {
-        "date": "2026-06-02",
-        "title": "Revisione layout cucina",
-        "description": "Il layout della cucina è stato ottimizzato in base alle indicazioni emerse durante il sopralluogo del 28 maggio. Il nuovo schema prevede un'isola centrale da 140×90 cm."
-      },
-      {
         "date": "2026-05-28",
         "title": "Concept approvato",
-        "description": "Il concept architettonico è stato approvato dal cliente con piccole osservazioni sull'orientamento del volume principale. Si procede con lo sviluppo progettuale."
+        "description": "Il concept architettonico è stato approvato dal cliente con piccole osservazioni relative alla demolizione di tramezzi e alla modifica dell'impianto cucina. Si attendono riferimenti architettonici per lo sviluppo progettuale."
       },
       {
-        "date": "2026-05-10",
+        "date": "2026-05-02",
         "title": "Sopralluogo completato",
         "description": "Effettuato il rilievo metrico completo dell'area di intervento. Documentazione fotografica acquisita e restituzione planimetrica in corso."
       },
       {
-        "date": "2026-05-03",
+        "date": "2026-05-01",
         "title": "Avvio progetto",
-        "description": "Prima riunione con il cliente. Definiti i requisiti principali, il budget di riferimento e la tempistica indicativa del progetto."
+        "description": "Prima riunione con il cliente. Definiti i requisiti principali e la tempistica indicativa del progetto."
       }
     ]
   },
