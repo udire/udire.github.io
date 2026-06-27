@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chi sono — Marco Mastandrea Architetto</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+.page-hero {
+  padding: calc(58px + 5rem) 0 4rem;
+  border-bottom: 1px solid var(--rule);
+}
+.page-eyebrow {
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gray); margin-bottom: 1.25rem; display: block;
+}
+.page-h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 300; letter-spacing: -.04em; line-height: .95;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+@media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+.about-bio { font-size: 15px; color: #333; line-height: 1.8; }
+.about-bio p + p { margin-top: 1.2rem; }
+.about-meta { display: flex; flex-direction: column; gap: .5rem; }
+.meta-item {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: .6rem 0; border-bottom: 1px solid var(--rule);
+  font-size: 12px;
+}
+.meta-item dt { color: var(--gray); letter-spacing: .08em; text-transform: uppercase; }
+.meta-item dd { font-weight: 400; }
+
+/* EDUCATION TIMELINE */
+.edu-section { padding: 5rem 0; }
+.edu-list { margin-top: 3rem; }
+.edu-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.edu-item:first-child { border-top: 1px solid var(--rule); }
+@media (max-width: 640px) {
+  .edu-item { grid-template-columns: 1fr; gap: .5rem; }
+}
+.edu-years { font-size: 11px; letter-spacing: .1em; color: var(--gray); padding-top: 3px; }
+.edu-title { font-size: 1rem; font-weight: 400; letter-spacing: -.01em; margin-bottom: .2rem; }
+.edu-place { font-size: 12px; color: var(--gray); }
+.edu-desc  { font-size: 12px; color: #555; line-height: 1.7; margin-top: .5rem; max-width: 560px; }
+
+/* COMPETENZE */
+.skills-section { padding: 5rem 0; border-top: 1px solid var(--rule); }
+.skills-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+  margin-top: 3rem;
+}
+@media (max-width: 640px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
+.skill-card {
+  padding: 1.5rem;
+  border-right: 1px solid var(--rule);
+}
+.skill-card:last-child,
+.skill-card:nth-child(3n) { border-right: none; }
+@media (max-width: 640px) {
+  .skill-card:nth-child(2n) { border-right: none; }
+  .skill-card:nth-child(3n) { border-right: 1px solid var(--rule); }
+}
+.skill-card + .skill-card { border-top: 0; }
+.skill-num { font-size: 10px; letter-spacing: .16em; color: var(--gray); margin-bottom: .5rem; }
+.skill-name { font-size: .9rem; font-weight: 400; }
+.skill-list { margin-top: .4rem; font-size: 11px; color: var(--gray); line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">M. Mastandrea</a>
+  <div class="nav-links">
+    <a href="chi-sono.html" class="nav-link active">Chi sono</a>
+    <a href="progetti.html" class="nav-link">Lavori</a>
+    <a href="contatti.html" class="nav-link">Contatti</a>
+    <a href="stato.html" class="nav-cta nav-link">Area cliente →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- PAGE HERO -->
+  <div class="page-hero fu">
+    <a href="index.html" class="back" style="margin-bottom:2rem; display:inline-flex;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Home
+    </a>
+    <span class="page-eyebrow">01 — Chi sono</span>
+    <h1 class="page-h1">Marco<br>Mastandrea</h1>
+  </div>
+
+  <!-- BIO + META -->
+  <div class="about-grid">
+    <div class="about-bio fu d1">
+      <p>Architetto iscritto all'Ordine degli Architetti P.P.C. di Salerno (N. 3719), con studio a Capaccio Paestum, in provincia di Salerno.</p>
+      <p>Laureato magistrale al Politecnico di Torino con 108/110, ho successivamente approfondito i temi del progetto urbano sostenibile con un Master di II livello in <em>Climate Resilient Urban Design</em> presso l'Università Federico II di Napoli, concluso con lode.</p>
+      <p>Lavoro su progetti residenziali e d'interni con un approccio diretto: materiali onesti, geometrie chiare, processo trasparente. Lo studio è strutturato per offrire al cliente un'esperienza digitale — ogni progetto ha una scheda aggiornata in tempo reale, accessibile via codice.</p>
+      <p>Affianco alla libera professione la ricerca sui temi del climate change applicato al progetto urbano, con esperienze internazionali in Belgio, Spagna e Finlandia.</p>
+    </div>
+    <dl class="about-meta fu d2">
+      <div class="meta-item"><dt>Sede</dt><dd>Capaccio Paestum (SA), IT</dd></div>
+      <div class="meta-item"><dt>Iscrizione</dt><dd>Ordine Arch. Salerno N. 3719</dd></div>
+      <div class="meta-item"><dt>Abilitazione</dt><dd>2025</dd></div>
+      <div class="meta-item"><dt>Settori</dt><dd>Residenziale · Interior · Clima</dd></div>
+      <div class="meta-item"><dt>Software</dt><dd>AutoCAD · Revit · BIM · Rhino</dd></div>
+      <div class="meta-item"><dt>Lingue</dt><dd>Italiano · Inglese · Francese</dd></div>
+      <div class="meta-item" style="border-bottom:none; padding-top:1.5rem;">
+        <dt></dt>
+        <dd style="display:flex;gap:.75rem;flex-wrap:wrap;">
+          <a href="CV_Marco_Mastandrea.pdf" target="_blank" class="btn" style="font-size:11px; padding:9px 16px;">Curriculum PDF →</a>
+          <a href="https://www.linkedin.com/in/marcomastandrea-/" target="_blank" rel="noopener" class="btn" style="font-size:11px; padding:9px 16px;">LinkedIn</a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+
+  <!-- EDUCATION -->
+  <section class="edu-section">
+    <span class="section-label">Formazione</span>
+    <h2 class="section-title">Percorso<br>accademico</h2>
+
+    <div class="edu-list">
+
+      <div class="edu-item fu d1">
+        <span class="edu-years">2026 — Presente</span>
+        <div>
+          <div class="edu-title">Libero professionista — Architetto</div>
+          <div class="edu-place">Studio Marco Mastandrea · Capaccio Paestum</div>
+          <p class="edu-desc">Studio indipendente su progettazione residenziale, interior design e ricerca in ambito di urban climate resilient design.</p>
+        </div>
+      </div>
+
+      <div class="edu-item fu d2">
+        <span class="edu-years">2024 — 2026</span>
+        <div>
+          <div class="edu-title">Master II livello — Climate Resilient Urban Design</div>
+          <div class="edu-place">Università degli Studi di Napoli Federico II · 110L</div>
+          <p class="edu-desc">Competenze tecniche per sviluppare progetti urbani e architettonici resilienti ai cambiamenti climatici in prospettiva multi-scalare. Esperienza internazionale su masterplan urbani, approfondimento su software parametrici.</p>
+        </div>
+      </div>
+
+      <div class="edu-item fu d3">
+        <span class="edu-years">2022 — 2024</span>
+        <div>
+          <div class="edu-title">Laurea Magistrale in Architettura LM-4</div>
+          <div class="edu-place">Politecnico di Torino · 108/110</div>
+          <p class="edu-desc">Formazione progettuale multiscalare — edilizia scolastica, contesto urbano — con approccio sperimentale, ricerca storica e uso del BIM. Competenze in gestione di atti pubblici e procedure di accesso e trasparenza.</p>
+        </div>
+      </div>
+
+      <div class="edu-item fu d4">
+        <span class="edu-years">02 – 06 / 2023</span>
+        <div>
+          <div class="edu-title">Erasmus+</div>
+          <div class="edu-place">Université de Liège · Belgio</div>
+          <p class="edu-desc">Semestre di studio all'estero con approfondimento della visione progettuale in chiave internazionale.</p>
+        </div>
+      </div>
+
+      <div class="edu-item fu d5">
+        <span class="edu-years">2017 — 2021</span>
+        <div>
+          <div class="edu-title">Laurea Triennale in Scienze dell'Architettura</div>
+          <div class="edu-place">Università degli Studi di Napoli Federico II</div>
+          <p class="edu-desc">Basi della progettazione architettonica e urbana: rappresentazione, storia dell'architettura, tecnologie costruttive, strumenti digitali.</p>
+        </div>
+      </div>
+
+      <div class="edu-item fu">
+        <span class="edu-years">2022 — 2025</span>
+        <div>
+          <div class="edu-title">Attività internazionali</div>
+          <div class="edu-place">Belgio · Spagna · Finlandia</div>
+          <p class="edu-desc">Workshop a Barcellona (Granollers) sui temi del climate change; corso Aalto University su leadership, cultura e comunicazione per il lavoro in team internazionale.</p>
+        </div>
+      </div>
+
+      <div class="edu-item fu">
+        <span class="edu-years">2011 — 2016</span>
+        <div>
+          <div class="edu-title">Diploma maturità scientifica</div>
+          <div class="edu-place">Liceo Scientifico G.B. Piranesi · Capaccio Paestum</div>
+          <p class="edu-desc">Basi logico-matematiche e introduzione alla programmazione informatica, successivamente sviluppata in ambienti VPL.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPETENZE -->
+  <section class="skills-section">
+    <span class="section-label">Competenze</span>
+    <h2 class="section-title">Cosa so fare</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-num">01</div>
+        <div class="skill-name">Progettazione</div>
+        <div class="skill-list">Architettura residenziale · Interior design · Ristrutturazioni · Nuove costruzioni</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-num">02</div>
+        <div class="skill-name">Strumenti BIM</div>
+        <div class="skill-list">Revit · AutoCAD · Rhino · Grasshopper · SketchUp</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-num">03</div>
+        <div class="skill-name">Pratiche edilizie</div>
+        <div class="skill-list">CILA · SCIA · Permesso di costruire · Collaudi · Agibilità</div>
+      </div>
+      <div class="skill-card" style="border-top:1px solid var(--rule);">
+        <div class="skill-num">04</div>
+        <div class="skill-name">Clima &amp; Urbanistica</div>
+        <div class="skill-list">Climate resilient design · Masterplan · Analisi parametrica · GIS</div>
+      </div>
+      <div class="skill-card" style="border-top:1px solid var(--rule);">
+        <div class="skill-num">05</div>
+        <div class="skill-name">Direzione lavori</div>
+        <div class="skill-list">Computo metrico · Coordinamento imprese · Sicurezza cantiere</div>
+      </div>
+      <div class="skill-card" style="border-top:1px solid var(--rule); border-right:none;">
+        <div class="skill-num">06</div>
+        <div class="skill-name">Design digitale</div>
+        <div class="skill-list">Web design · Grafica · Comunicazione visiva</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <span>© 2026 Marco Mastandrea Architetto</span>
+  <span>Capaccio Paestum · IT</span>
+</footer>
+
+</body>
+</html>

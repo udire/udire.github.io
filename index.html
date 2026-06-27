@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marco Mastandrea — Architetto</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+/* ── INTRO OVERLAY ──────────────────────────── */
+#intro {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--black);
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+#intro-text {
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: 300; letter-spacing: -.04em;
+  color: var(--white);
+  opacity: 0;
+}
+#intro.phase-in  #intro-text { animation: introIn  .9s ease-out forwards; }
+#intro.phase-out { animation: introOut .7s ease-in forwards; }
+@keyframes introIn  { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+@keyframes introOut { from { opacity:1; } to { opacity:0; } }
+
+/* ── CANVAS HERO ────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding-top: 58px; /* nav height */
+  overflow: hidden;
+}
+#hero-canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 0 2.5rem 4rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  width: 100%;
+}
+@media (max-width: 640px) { .hero-content { padding: 0 1.25rem 3rem; } }
+
+.hero-eyebrow {
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gray); margin-bottom: 1.5rem;
+}
+.hero-h1 {
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  font-weight: 300; letter-spacing: -.04em; line-height: .95;
+  margin-bottom: 2.5rem;
+}
+.hero-h1 em { font-style: italic; font-weight: 200; }
+.hero-sub {
+  max-width: 420px;
+  font-size: 14px; color: var(--gray); line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ── SCROLL INDICATOR ───────────────────────── */
+.scroll-hint {
+  position: absolute; right: 2.5rem; bottom: 2.5rem; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  writing-mode: vertical-rl;
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gray);
+  animation: scrollBob 2s ease-in-out infinite;
+}
+@keyframes scrollBob {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+@media (max-width: 640px) { .scroll-hint { display: none; } }
+
+/* ── INDEX LINKS ────────────────────────────── */
+.index-section { padding: 5rem 0 7rem; }
+.index-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--rule);
+  transition: background .2s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.index-row:first-child { border-top: 1px solid var(--rule); }
+.index-row:hover { background: #f8f8f8; margin: 0 -2.5rem; padding-left: 2.5rem; padding-right: 2.5rem; }
+@media (max-width: 640px) {
+  .index-row:hover { margin: 0 -1.25rem; padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+.index-num { font-size: 11px; letter-spacing: .14em; color: var(--gray); }
+.index-name { font-size: 1.35rem; font-weight: 300; letter-spacing: -.02em; }
+.index-sub  { font-size: 11px; color: var(--gray); letter-spacing: .08em; }
+.index-arrow {
+  width: 32px; height: 32px; border: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background .2s, border-color .2s;
+}
+.index-row:hover .index-arrow { background: var(--black); border-color: var(--black); }
+.index-row:hover .index-arrow svg { stroke: var(--white); }
+  </style>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+  <span id="intro-text">Marco Mastandrea</span>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">M. Mastandrea</a>
+  <div class="nav-links">
+    <a href="chi-sono.html" class="nav-link">Chi sono</a>
+    <a href="progetti.html" class="nav-link">Lavori</a>
+    <a href="contatti.html" class="nav-link">Contatti</a>
+    <a href="stato.html" class="nav-cta nav-link">Area cliente →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="scroll-hint">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+    scroll
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow fu d1">Ordine Architetti P.P.C. Salerno — N. 3719</p>
+    <h1 class="hero-h1 fu d2">
+      Architettura<br>
+      semplice,<br>
+      <em>trasparente</em><br>
+      e digitale.
+    </h1>
+    <p class="hero-sub fu d3">Studio fondato a Capaccio Paestum. Residenziale, interior, pratiche edilizie. Ogni progetto ha una scheda aggiornata in tempo reale.</p>
+    <div class="hero-actions fu d4">
+      <a href="contatti.html" class="btn btn--solid">Inizia un progetto</a>
+      <a href="stato.html" class="btn btn--blue">Portale cliente →</a>
+      <a href="contatt.vcf" class="btn">+ Aggiungi ai contatti</a>
+    </div>
+  </div>
+</section>
+
+<!-- INDEX -->
+<div class="wrap">
+  <section class="index-section">
+    <span class="section-label">Esplora</span>
+
+    <a href="chi-sono.html" class="index-row fu d1">
+      <span class="index-num">01</span>
+      <div>
+        <div class="index-name">Chi sono</div>
+        <div class="index-sub">Formazione &amp; percorso professionale</div>
+      </div>
+      <div class="index-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </div>
+    </a>
+
+    <a href="progetti.html" class="index-row fu d2">
+      <span class="index-num">02</span>
+      <div>
+        <div class="index-name">Lavori</div>
+        <div class="index-sub">Progetti in corso &amp; completati</div>
+      </div>
+      <div class="index-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </div>
+    </a>
+
+    <a href="stato.html" class="index-row fu d3">
+      <span class="index-num">03</span>
+      <div>
+        <div class="index-name">Area cliente</div>
+        <div class="index-sub">Controlla lo stato di avanzamento del tuo progetto</div>
+      </div>
+      <div class="index-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </div>
+    </a>
+
+    <a href="contatti.html" class="index-row fu d4">
+      <span class="index-num">04</span>
+      <div>
+        <div class="index-name">Contatti</div>
+        <div class="index-sub">Email · Telefono · Instagram · LinkedIn</div>
+      </div>
+      <div class="index-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </div>
+    </a>
+  </section>
+</div>
+
+<footer class="footer">
+  <span>© 2026 Marco Mastandrea Architetto</span>
+  <span>Capaccio Paestum · IT</span>
+</footer>
+
+<script>
+/* ── INTRO SEQUENCE ─────────────────────────── */
+const intro = document.getElementById('intro');
+const introText = document.getElementById('intro-text');
+
+// Only show intro on first visit per session
+if (!sessionStorage.getItem('intro-seen')) {
+  sessionStorage.setItem('intro-seen', '1');
+  document.body.style.overflow = 'hidden';
+
+  // Phase in: text appears
+  requestAnimationFrame(() => {
+    intro.classList.add('phase-in');
+  });
+
+  setTimeout(() => {
+    intro.classList.add('phase-out');
+    setTimeout(() => {
+      intro.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 700);
+  }, 2000);
+} else {
+  intro.style.display = 'none';
+}
+
+/* ── HERO CANVAS — Flowing Lines ──────────────── */
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, raf;
+  let t = 0;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Line nodes
+  const LINES = 22;
+  const POINTS = 6;
+
+  function drawFrame() {
+    ctx.clearRect(0, 0, W, H);
+    t += .004;
+
+    for (let l = 0; l < LINES; l++) {
+      const phase = (l / LINES) * Math.PI * 2;
+      const hue   = (l / LINES) * 360;
+      const alpha = .13 + .1 * Math.sin(t + phase);
+
+      ctx.beginPath();
+      for (let p = 0; p <= POINTS * 12; p++) {
+        const frac = p / (POINTS * 12);
+        const x = frac * W;
+        // layered sine waves create organic mesh
+        const y = H * (.2 + .65 * frac)
+          + Math.sin(frac * 3.5 + t + phase) * H * .18
+          + Math.sin(frac * 6   + t * 1.3 + phase * 1.5) * H * .08
+          + Math.sin(frac * 11  + t * .7  + phase * .8)  * H * .04;
+        p === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = `hsla(${hue},70%,55%,${alpha})`;
+      ctx.lineWidth   = 1;
+      ctx.stroke();
+    }
+    raf = requestAnimationFrame(drawFrame);
+  }
+
+  drawFrame();
+  // Pause when tab hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { cancelAnimationFrame(raf); }
+    else { drawFrame(); }
+  });
+})();
+</script>
+</body>
+</html>

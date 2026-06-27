@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contatti — Marco Mastandrea Architetto</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+.page-hero {
+  padding: calc(58px + 5rem) 0 4rem;
+  border-bottom: 1px solid var(--rule);
+}
+.page-eyebrow { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gray); margin-bottom:1.25rem; display:block; }
+.page-h1 { font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300; letter-spacing: -.04em; line-height: .95; }
+
+/* CONTACT SPLIT */
+.contact-split {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 5rem;
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+@media (max-width: 700px) { .contact-split { grid-template-columns: 1fr; gap: 3rem; } }
+
+.contact-intro { }
+.contact-intro h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 300; letter-spacing: -.03em; line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+.contact-intro p { font-size: 13px; color: var(--gray); line-height: 1.8; max-width: 320px; }
+
+.contact-links { display: flex; flex-direction: column; gap: 0; }
+.contact-link {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+  transition: padding-left .2s;
+  text-decoration: none; color: inherit;
+}
+.contact-link:first-child { border-top: 1px solid var(--rule); }
+.contact-link:hover { padding-left: .75rem; }
+.contact-link-type {
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gray);
+}
+.contact-link-value { font-size: 14px; font-weight: 300; }
+.contact-link-arrow {
+  width: 30px; height: 30px; border: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: center;
+  transition: background .18s, border-color .18s;
+}
+.contact-link:hover .contact-link-arrow { background: var(--black); border-color: var(--black); }
+.contact-link:hover .contact-link-arrow svg { stroke: var(--white); }
+
+/* PORTAL BOX */
+.portal-section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.portal-box {
+  background: var(--black); color: var(--white);
+  padding: 3.5rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+  align-items: center;
+}
+@media (max-width: 700px) { .portal-box { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; } }
+.portal-box-label {
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.3); margin-bottom: 1rem; display: block;
+}
+.portal-box-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 300; letter-spacing: -.03em; line-height: 1.1;
+  margin-bottom: .75rem;
+}
+.portal-box-sub {
+  font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.7;
+}
+.portal-input-row { display: flex; gap: 0; }
+.portal-input {
+  flex: 1;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.15); border-right: none;
+  padding: 14px 16px;
+  font-family: var(--f); font-size: 14px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--blue); outline: none;
+  transition: background .2s;
+}
+.portal-input::placeholder { color: rgba(255,255,255,.2); font-size: 11px; letter-spacing: .12em; }
+.portal-input:focus { background: rgba(255,255,255,.1); }
+.portal-btn {
+  background: var(--blue); color: var(--white);
+  border: 1px solid var(--blue);
+  padding: 14px 20px;
+  font-family: var(--f); font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  cursor: pointer; white-space: nowrap;
+  transition: background .2s;
+}
+.portal-btn:hover { background: #0030cc; }
+.portal-hint {
+  margin-top: .9rem; font-size: 10px; color: rgba(255,255,255,.3);
+}
+.portal-hint a { color: rgba(255,255,255,.5); border-bottom: 1px solid rgba(255,255,255,.15); padding-bottom:1px; }
+.portal-hint a:hover { color: var(--white); }
+
+/* AVAILABILITY */
+.avail-section { padding: 5rem 0; }
+.avail-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 0; border: 1px solid var(--rule); margin-top: 2.5rem;
+}
+@media (max-width: 640px) { .avail-grid { grid-template-columns: 1fr; } }
+.avail-card {
+  padding: 1.75rem; border-right: 1px solid var(--rule);
+}
+.avail-card:last-child { border-right: none; }
+@media (max-width: 640px) { .avail-card { border-right: none; border-bottom: 1px solid var(--rule); } }
+.avail-num { font-size: 10px; letter-spacing: .16em; color: var(--gray); margin-bottom: .5rem; }
+.avail-title { font-size: 1rem; font-weight: 400; margin-bottom: .3rem; }
+.avail-desc { font-size: 11px; color: var(--gray); line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">M. Mastandrea</a>
+  <div class="nav-links">
+    <a href="chi-sono.html" class="nav-link">Chi sono</a>
+    <a href="progetti.html" class="nav-link">Lavori</a>
+    <a href="contatti.html" class="nav-link active">Contatti</a>
+    <a href="stato.html" class="nav-cta nav-link">Area cliente →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <div class="page-hero fu">
+    <a href="index.html" class="back" style="margin-bottom:2rem; display:inline-flex;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Home
+    </a>
+    <span class="page-eyebrow">04 — Contatti</span>
+    <h1 class="page-h1">Parliamo<br>del tuo<br>progetto.</h1>
+  </div>
+
+  <!-- CONTACTS -->
+  <div class="contact-split">
+    <div class="contact-intro fu d1">
+      <h2>Il primo incontro è sempre gratuito.</h2>
+      <p>Una chiamata o un caffè di 30 minuti per capire cosa vuoi fare e come posso aiutarti. Nessun impegno, nessun preventivo forzato.</p>
+    </div>
+    <div class="contact-links fu d2">
+      <a href="mailto:ma.marcomasta@gmail.com" class="contact-link">
+        <span class="contact-link-type">Email</span>
+        <span class="contact-link-value">ma.marcomasta@gmail.com</span>
+        <div class="contact-link-arrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+      <a href="tel:+393311483809" class="contact-link">
+        <span class="contact-link-type">Telefono</span>
+        <span class="contact-link-value">+39 331 1483809</span>
+        <div class="contact-link-arrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/marcomastandrea-/" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-type">LinkedIn</span>
+        <span class="contact-link-value">marcomastandrea-</span>
+        <div class="contact-link-arrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+      <a href="https://instagram.com/udirethinking" target="_blank" rel="noopener" class="contact-link">
+        <span class="contact-link-type">Instagram</span>
+        <span class="contact-link-value">@udirethinking</span>
+        <div class="contact-link-arrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+      <a href="contatt.vcf" class="contact-link">
+        <span class="contact-link-type">vCard</span>
+        <span class="contact-link-value">Aggiungi in rubrica</span>
+        <div class="contact-link-arrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- PORTAL -->
+  <section class="portal-section">
+    <span class="section-label">Portale cliente</span>
+    <div class="portal-box fu d1">
+      <div>
+        <span class="portal-box-label">Hai già un progetto in corso?</span>
+        <h2 class="portal-box-title">Accedi alla scheda<br>del tuo progetto.</h2>
+        <p class="portal-box-sub">Fasi, avanzamento e aggiornamenti in tempo reale — sempre disponibili.</p>
+      </div>
+      <div>
+        <div class="portal-input-row">
+          <input
+            type="text" id="portal-code"
+            class="portal-input"
+            placeholder="CODICE PROGETTO"
+            autocomplete="off" autocorrect="off"
+            autocapitalize="characters" spellcheck="false"
+            maxlength="20"
+          />
+          <button class="portal-btn" id="portal-go">Accedi →</button>
+        </div>
+        <p class="portal-hint">Non hai il codice? <a href="mailto:ma.marcomasta@gmail.com">Scrivimi</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVAILABILITY -->
+  <section class="avail-section fu">
+    <span class="section-label">Come lavoro</span>
+    <h2 class="section-title">Come posso<br>aiutarti</h2>
+    <div class="avail-grid">
+      <div class="avail-card">
+        <div class="avail-num">01</div>
+        <div class="avail-title">Progetto di interni</div>
+        <p class="avail-desc">Ristrutturazioni, nuova distribuzione, scelta materiali, elementi su misura. Appartamenti e locali commerciali.</p>
+      </div>
+      <div class="avail-card">
+        <div class="avail-num">02</div>
+        <div class="avail-title">Architettura residenziale</div>
+        <p class="avail-desc">Nuova costruzione e recupero. Concept, sviluppo progetto, coordinamento strutture e impianti.</p>
+      </div>
+      <div class="avail-card">
+        <div class="avail-num">03</div>
+        <div class="avail-title">Pratiche edilizie</div>
+        <p class="avail-desc">CILA, SCIA, permesso di costruire. Gestione completa della pratica — ti avviso ad ogni passaggio.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <span>© 2026 Marco Mastandrea Architetto</span>
+  <span>Capaccio Paestum · IT</span>
+</footer>
+
+<script>
+const input = document.getElementById('portal-code');
+const btn   = document.getElementById('portal-go');
+input.addEventListener('input', function() {
+  const p = this.selectionStart;
+  this.value = this.value.toUpperCase();
+  this.setSelectionRange(p, p);
+});
+function go() {
+  const code = input.value.trim().toUpperCase();
+  if (!code) { input.focus(); return; }
+  window.location.href = 'stato.html?code=' + encodeURIComponent(code);
+}
+btn.addEventListener('click', go);
+input.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+</script>
+
+</body>
+</html>
