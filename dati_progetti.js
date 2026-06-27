@@ -1,6 +1,6 @@
 // ============================================================
 //  DATI PROGETTI — Marco Mastandrea Architetto
-//  Modifica questo file per aggiornare lo stato dei progetti.
+//  file per aggiornare lo stato dei progetti.
 //
 //  STATI FASE:
 //    "completata"   → fase terminata (check blu scuro)
