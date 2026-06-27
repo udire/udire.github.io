@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marco Mastandrea — Architetto</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+/* ─── RESET & BASE ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink:     #0d0d0d;
+  --paper:   #f5f3ef;
+  --paper-2: #ede9e2;
+  --rule:    rgba(13,13,13,.14);
+  --rule-h:  rgba(13,13,13,.8);
+  --blue:    #1a3cff;
+  --blue-bg: #eef0ff;
+  --muted:   rgba(13,13,13,.45);
+  --max:     780px;
+  --mono:    'DM Mono', monospace;
+  --serif:   'Fraunces', serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+::selection { background: var(--ink); color: var(--paper); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ─── NAVIGATION ──────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+  transition: background .3s;
+}
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 4px 6px;
+  transition: background .15s, color .15s;
+}
+.nav-logo:hover { background: var(--ink); color: var(--paper); }
+.nav-links {
+  display: flex; gap: 2rem; align-items: center;
+}
+.nav-link {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .2s;
+}
+.nav-link:hover { color: var(--ink); }
+.nav-link.cta {
+  color: var(--blue);
+  border-bottom: 1px solid var(--blue);
+  padding-bottom: 1px;
+}
+@media (max-width: 600px) {
+  .nav-links .nav-link:not(.cta) { display: none; }
+  .nav { padding: 0 1.25rem; }
+}
+
+/* ─── WRAPPER ─────────────────────────────────────────────── */
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+@media (max-width: 600px) { .wrap { padding: 0 1.25rem; } }
+
+/* ─── SECTION BASE ────────────────────────────────────────── */
+section { border-top: 1px solid var(--rule); }
+.section-label {
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── HERO ────────────────────────────────────────────────── */
+.hero {
+  padding-top: calc(52px + 5rem);
+  padding-bottom: 5rem;
+  border: none;
+}
+.hero-eyebrow {
+  font-size: 10px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+.hero-headline {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(3.2rem, 9vw, 6.4rem);
+  line-height: .95;
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+.hero-headline em {
+  font-style: italic;
+  font-weight: 200;
+}
+.hero-sub {
+  max-width: 460px;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+.hero-actions {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  padding: 11px 20px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+  text-decoration: none;
+}
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn--solid { background: var(--ink); color: var(--paper); }
+.btn--solid:hover { background: #333; border-color: #333; }
+.btn--blue {
+  background: var(--blue); color: #fff;
+  border-color: var(--blue);
+}
+.btn--blue:hover { background: #0f2bcc; border-color: #0f2bcc; }
+
+/* ─── SCROLLING TICKER ────────────────────────────────────── */
+.ticker {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+.ticker-inner {
+  display: inline-block;
+  animation: ticker-scroll 28s linear infinite;
+}
+.ticker-inner span {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 3rem;
+}
+.ticker-inner span::before {
+  content: '·';
+  margin-right: 3rem;
+  color: var(--rule-h);
+}
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── SERVICES ────────────────────────────────────────────── */
+.services {
+  padding: 4.5rem 0;
+}
+.services-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 3rem;
+}
+.services-title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+@media (max-width: 640px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+.service-card {
+  padding: 1.75rem 1.5rem;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: .5rem;
+}
+.service-card:last-child { border-right: none; }
+@media (max-width: 640px) {
+  .service-card { border-right: none; border-bottom: 1px solid var(--rule); }
+  .service-card:last-child { border-bottom: none; }
+}
+.service-num {
+  font-size: 9px; letter-spacing: .2em;
+  color: var(--muted); margin-bottom: .5rem;
+}
+.service-name {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 1.2rem;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: .25rem;
+}
+.service-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ─── HOW IT WORKS ────────────────────────────────────────── */
+.process {
+  padding: 4.5rem 0;
+}
+.process-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 3rem;
+}
+.process-title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.steps {
+  display: flex; flex-direction: column;
+  gap: 0;
+}
+.step {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: start;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+  transition: background .2s;
+  cursor: default;
+}
+.step:last-child { border-bottom: none; }
+.step:hover { background: var(--paper-2); margin: 0 -2rem; padding-left: 2rem; padding-right: 2rem; }
+@media (max-width: 600px) {
+  .step:hover { margin: 0 -1.25rem; padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+.step-num {
+  font-size: 9px; letter-spacing: .2em;
+  color: var(--muted); padding-top: 3px;
+}
+.step-body {}
+.step-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 1.15rem;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: .35rem;
+}
+.step-text {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 460px;
+}
+
+/* ─── CLIENT PORTAL ──────────────────────────────────────── */
+.portal {
+  padding: 4.5rem 0;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 0;
+  /* override the section border-top */
+  border-top: none;
+  margin: 0 -2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+@media (max-width: 600px) {
+  .portal { margin: 0 -1.25rem; padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+.portal-section-label {
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(245,243,239,.35);
+  margin-bottom: 2.5rem;
+}
+.portal-title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+  line-height: .95;
+  margin-bottom: 1.25rem;
+}
+.portal-sub {
+  font-size: 12px;
+  color: rgba(245,243,239,.5);
+  line-height: 1.75;
+  max-width: 360px;
+  margin-bottom: 2.5rem;
+}
+.portal-input-row {
+  display: flex; gap: 0; max-width: 480px;
+}
+.portal-input {
+  flex: 1;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.18);
+  border-right: none;
+  padding: 14px 16px;
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--blue);
+  outline: none;
+  transition: background .2s;
+}
+.portal-input::placeholder { color: rgba(255,255,255,.2); font-size: 11px; letter-spacing: .14em; }
+.portal-input:focus { background: rgba(255,255,255,.11); }
+.portal-btn {
+  background: var(--blue); color: #fff;
+  border: 1px solid var(--blue);
+  padding: 14px 22px;
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  cursor: pointer; transition: background .2s;
+  white-space: nowrap;
+}
+.portal-btn:hover { background: #0f2bcc; }
+.portal-hint {
+  margin-top: 1rem;
+  font-size: 10px; letter-spacing: .12em;
+  color: rgba(245,243,239,.3);
+}
+.portal-hint a {
+  color: rgba(245,243,239,.5);
+  border-bottom: 1px solid rgba(245,243,239,.2);
+  padding-bottom: 1px;
+}
+.portal-hint a:hover { color: var(--paper); }
+.portal-features {
+  margin-top: 3rem;
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+@media (max-width: 600px) { .portal-features { grid-template-columns: 1fr 1fr; } }
+.portal-feat {
+  padding: 1.25rem 0 1.25rem 0;
+  border-right: 1px solid rgba(255,255,255,.08);
+  padding-right: 1.5rem;
+  margin-right: 1.5rem;
+}
+.portal-feat:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+.portal-feat-label {
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(245,243,239,.3);
+  margin-bottom: .4rem;
+}
+.portal-feat-value {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: 1.1rem;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  color: var(--paper);
+  line-height: 1.1;
+}
+
+/* ─── PROJECTS ────────────────────────────────────────────── */
+.projects {
+  padding: 4.5rem 0;
+}
+.projects-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 3rem;
+}
+.projects-title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+@media (max-width: 560px) { .projects-grid { grid-template-columns: 1fr; } }
+.proj {
+  background: var(--paper);
+  padding: 1.5rem;
+  transition: background .25s;
+  cursor: default;
+}
+.proj:hover { background: var(--paper-2); }
+.proj-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.proj-num { font-size: 9px; letter-spacing: .2em; color: var(--muted); }
+.proj-badge {
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
+  border: 1px solid var(--rule-h);
+  padding: 3px 8px; color: var(--ink);
+}
+.proj-badge.done { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.proj-img {
+  width: 100%; aspect-ratio: 3/2;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+  transition: filter .6s, transform .6s;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+.proj:hover .proj-img { filter: grayscale(.3) contrast(1); transform: scale(1.01); }
+.proj-title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: 1.55rem;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  line-height: .97;
+  margin-bottom: .6rem;
+}
+.proj-desc {
+  font-size: 11px; color: var(--muted); line-height: 1.65;
+}
+.proj-meta {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6px 1rem;
+  border-top: 1px solid var(--rule);
+  padding-top: .75rem;
+  margin-top: 1rem;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+}
+.proj-meta dt { color: var(--muted); }
+.proj-meta dd { color: var(--ink); }
+
+/* ─── ABOUT ───────────────────────────────────────────────── */
+.about {
+  padding: 4.5rem 0;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+.about-left {}
+.about-title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+.about-bio {
+  font-size: 12px; color: var(--muted); line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.about-right {}
+.edu-list { display: flex; flex-direction: column; gap: 0; }
+.edu-item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 1rem;
+  padding: .9rem 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.edu-item:first-child { border-top: 1px solid var(--rule); }
+.edu-year { font-size: 10px; letter-spacing: .1em; color: var(--muted); padding-top: 2px; }
+.edu-body {}
+.edu-title {
+  font-size: 12px; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--ink); line-height: 1.3; margin-bottom: 2px;
+}
+.edu-place { font-size: 10px; letter-spacing: .12em; color: var(--muted); }
+
+/* ─── CONTACT ─────────────────────────────────────────────── */
+.contact {
+  padding: 4.5rem 0 6rem;
+}
+.contact-row {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-wrap: wrap; gap: 2rem;
+}
+.contact-title {
+  font-family: var(--serif);
+  font-weight: 200;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.contact-sub { font-size: 11px; color: var(--muted); line-height: 1.7; max-width: 340px; }
+.contact-links {
+  display: flex; flex-direction: column; gap: .5rem;
+}
+.contact-link {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem;
+  padding: .75rem 1rem;
+  border: 1px solid var(--rule);
+  font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+  transition: background .18s, color .18s;
+  min-width: 260px;
+}
+.contact-link:hover { background: var(--ink); color: var(--paper); }
+.contact-link span { color: var(--muted); font-size: 10px; }
+.contact-link:hover span { color: rgba(245,243,239,.5); }
+
+/* ─── FOOTER ──────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 1.5rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 100%;
+}
+@media (max-width: 600px) { footer { padding: 1.5rem 1.25rem; flex-direction: column; gap: .5rem; align-items: flex-start; } }
+.footer-l, .footer-r {
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
+}
+
+/* ─── ANIMATIONS ──────────────────────────────────────────── */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise .55s ease-out both; }
+.d1 { animation-delay: .05s; } .d2 { animation-delay: .12s; }
+.d3 { animation-delay: .20s; } .d4 { animation-delay: .30s; }
+.d5 { animation-delay: .40s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, .rise, .ticker-inner { animation: none !important; }
+}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">M. Mastandrea</a>
+  <div class="nav-links">
+    <a href="#servizi" class="nav-link">Servizi</a>
+    <a href="#progetto" class="nav-link">Come funziona</a>
+    <a href="#progetti" class="nav-link">Lavori</a>
+    <a href="#chi-sono" class="nav-link">Chi sono</a>
+    <a href="stato.html" class="nav-link cta">Area cliente →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="wrap">
+  <section class="hero" style="border:none">
+    <p class="hero-eyebrow rise d1">Ordine Architetti P.P.C. Salerno — N. 3719</p>
+    <h1 class="hero-headline rise d2">
+      Architettura<br>
+      semplice,<br>
+      <em>trasparente</em><br>
+      e digitale.
+    </h1>
+    <p class="hero-sub rise d3">
+      Studio fondato a Capaccio Paestum. Residenziale, interior, clima resiliente.
+      Ogni progetto ha una scheda aggiornata in tempo reale — sai sempre a che punto siamo.
+    </p>
+    <div class="hero-actions rise d4">
+      <a href="#progetto" class="btn btn--solid">Inizia un progetto</a>
+      <a href="stato.html" class="btn btn--blue">Portale cliente →</a>
+      <a href="contatt.vcf" class="btn">Aggiungi ai contatti</a>
+    </div>
+  </section>
+</div>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>Progettazione residenziale</span>
+    <span>Interior design</span>
+    <span>Capaccio Paestum</span>
+    <span>Rilievo e restituzione</span>
+    <span>Climate resilient design</span>
+    <span>Direzione lavori</span>
+    <span>BIM</span>
+    <span>Pratiche edilizie</span>
+    <span>Progettazione residenziale</span>
+    <span>Interior design</span>
+    <span>Capaccio Paestum</span>
+    <span>Rilievo e restituzione</span>
+    <span>Climate resilient design</span>
+    <span>Direzione lavori</span>
+    <span>BIM</span>
+    <span>Pratiche edilizie</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="wrap" id="servizi">
+  <section class="services">
+    <div class="services-header">
+      <h2 class="services-title">Come posso<br>aiutarti</h2>
+      <span class="section-label">Servizi</span>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-name">Progetto<br>di interni</div>
+        <p class="service-desc">Ristrutturazioni, nuove distribuzioni, materiali, dettagli su misura. Appartamenti, case, locali commerciali.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-name">Architettura<br>residenziale</div>
+        <p class="service-desc">Nuova costruzione e recupero. Dal concept agli elaborati esecutivi, coordinamento strutture e impianti.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-name">Pratiche<br>e permessi</div>
+        <p class="service-desc">CILA, SCIA, permesso di costruire. Gestione completa della pratica edilizia in Comune.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="wrap" id="progetto">
+  <section class="process">
+    <div class="process-header">
+      <h2 class="process-title">Come funziona<br>il percorso</h2>
+      <span class="section-label">Start a project</span>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <div class="step-body">
+          <h3 class="step-title">Primo incontro</h3>
+          <p class="step-text">Una telefonata o un incontro gratuito di 30 minuti. Parliamo della tua idea, del budget di massima e dei tempi. Senza impegno.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <div class="step-body">
+          <h3 class="step-title">Rilievo</h3>
+          <p class="step-text">Sopralluogo e rilievo metrico degli spazi. Restituzione planimetrica e documentazione fotografica.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <div class="step-body">
+          <h3 class="step-title">Concept</h3>
+          <p class="step-text">Prime idee progettuali: moodboard, schemi distributivi e riferimenti. Ti racconto la direzione prima di sviluppare tutto.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <div class="step-body">
+          <h3 class="step-title">Sviluppo progetto</h3>
+          <p class="step-text">Piante, prospetti, dettagli costruttivi, scelta materiali. Coordinamento con strutturista e impiantista dove necessario.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">05</span>
+        <div class="step-body">
+          <h3 class="step-title">Pratiche</h3>
+          <p class="step-text">Presentazione in Comune di tutta la documentazione necessaria. Ti avviso ad ogni aggiornamento.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">06</span>
+        <div class="step-body">
+          <h3 class="step-title">Cantiere</h3>
+          <p class="step-text">Direzione lavori, sopralluoghi periodici, contabilità. Il progetto diventa realtà — seguiamo ogni fase insieme.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CLIENT PORTAL -->
+<div class="wrap">
+  <section style="border-top: 1px solid var(--rule);">
+    <div class="portal" id="portale">
+      <p class="portal-section-label">Portale cliente</p>
+      <h2 class="portal-title">Lo stato del<br>tuo progetto,<br><em style="font-style:italic; font-weight:200;">sempre aggiornato.</em></h2>
+      <p class="portal-sub">Inserisci il codice che ti ho inviato per accedere alla scheda del tuo progetto: fasi, avanzamento e ultimi aggiornamenti.</p>
+      <div class="portal-input-row">
+        <input
+          type="text"
+          class="portal-input"
+          id="portal-code"
+          placeholder="es. CS2026APP"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="characters"
+          spellcheck="false"
+          maxlength="20"
+        />
+        <button class="portal-btn" id="portal-go">Accedi →</button>
+      </div>
+      <p class="portal-hint">
+        Non hai il codice?
+        <a href="mailto:ma.marcomasta@gmail.com">Scrivimi</a> e te lo invio.
+      </p>
+      <div class="portal-features">
+        <div class="portal-feat">
+          <div class="portal-feat-label">Accesso</div>
+          <div class="portal-feat-value">Privato<br>via codice</div>
+        </div>
+        <div class="portal-feat">
+          <div class="portal-feat-label">Aggiornamenti</div>
+          <div class="portal-feat-value">In tempo<br>reale</div>
+        </div>
+        <div class="portal-feat">
+          <div class="portal-feat-label">Visibilità</div>
+          <div class="portal-feat-value">Tutte le<br>fasi</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PROJECTS -->
+<div class="wrap" id="progetti">
+  <section class="projects">
+    <div class="projects-header">
+      <h2 class="projects-title">Lavori<br>selezionati</h2>
+      <a href="progetti.html" class="section-label" style="border-bottom:1px solid var(--muted); padding-bottom:1px;">Tutti i progetti →</a>
+    </div>
+    <div class="projects-grid">
+
+      <article class="proj">
+        <div class="proj-top">
+          <span class="proj-num">01</span>
+          <span class="proj-badge">In corso</span>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1545805453-e95c05f330dc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwaW50ZXJpb3J8ZW58MHx8fHwxNzc3MjEzMzIwfDA&ixlib=rb-4.1.0&q=85"
+          alt="Appartamento Capaccio Paestum"
+          class="proj-img"
+          loading="lazy"
+        />
+        <h3 class="proj-title">Appartamento ≈90 m²</h3>
+        <p class="proj-desc">Interior design completo. Ridistribuzione degli spazi, demolizione tramezzi, nuova cucina. Concept in corso di sviluppo.</p>
+        <dl class="proj-meta">
+          <dt>Anno</dt><dd>2026</dd>
+          <dt>Sede</dt><dd>Capaccio Paestum</dd>
+          <dt>Tipo</dt><dd>Interior</dd>
+          <dt>Sup.</dt><dd>~90 m²</dd>
+        </dl>
+      </article>
+
+      <article class="proj">
+        <div class="proj-top">
+          <span class="proj-num">02</span>
+          <span class="proj-badge done">Completato</span>
+        </div>
+        <img
+          src="https://images.pexels.com/photos/11831530/pexels-photo-11831530.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt="Padiglione Monolite Venezia"
+          class="proj-img"
+          loading="lazy"
+        />
+        <h3 class="proj-title">Padiglione<br>Monolite</h3>
+        <p class="proj-desc">Volume in calcestruzzo prefabbricato per la Fondazione Arte Contemporanea. Facciate cieche verso strada, aperte verso il bacino.</p>
+        <dl class="proj-meta">
+          <dt>Anno</dt><dd>2026</dd>
+          <dt>Sede</dt><dd>Venezia</dd>
+          <dt>Tipo</dt><dd>Culturale</dd>
+          <dt>Sup.</dt><dd>180 m²</dd>
+        </dl>
+      </article>
+
+      <article class="proj">
+        <div class="proj-top">
+          <span class="proj-num">03</span>
+          <span class="proj-badge">In corso</span>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=srgb&fm=jpg&q=85"
+          alt="Residenza monofamiliare Capaccio"
+          class="proj-img"
+          loading="lazy"
+        />
+        <h3 class="proj-title">Residenza<br>monofamiliare</h3>
+        <p class="proj-desc">Nuova costruzione residenziale. Brief in corso, ricerca dei riferimenti architettonici e definizione del programma funzionale.</p>
+        <dl class="proj-meta">
+          <dt>Anno</dt><dd>2026</dd>
+          <dt>Sede</dt><dd>Capaccio Paestum</dd>
+          <dt>Tipo</dt><dd>Residenziale</dd>
+          <dt>Sup.</dt><dd>—</dd>
+        </dl>
+      </article>
+
+      <article class="proj" style="background:var(--paper-2); display:flex; flex-direction:column; justify-content:center; align-items:flex-start; min-height: 300px;">
+        <p style="font-size:11px; color:var(--muted); letter-spacing:.12em; line-height:1.8; margin-bottom:1.25rem;">
+          Hai un'idea? Parliamone — un primo incontro è sempre gratuito.
+        </p>
+        <a href="mailto:ma.marcomasta@gmail.com" class="btn">Scrivimi →</a>
+      </article>
+
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div class="wrap" id="chi-sono">
+  <section class="about">
+    <div class="about-grid">
+      <div class="about-left">
+        <span class="section-label" style="display:block; margin-bottom:1.5rem;">Chi sono</span>
+        <h2 class="about-title">Marco<br>Mastandrea</h2>
+        <p class="about-bio">
+          Architetto iscritto all'Ordine degli Architetti P.P.C. di Salerno (N. 3719), con studio a Capaccio Paestum.<br><br>
+          Laureato magistrale al Politecnico di Torino e titolare di Master II livello alla Federico II di Napoli in Climate Resilient Urban Design.<br><br>
+          Lavoro su progetti residenziali e d'interni con un approccio diretto: materiali onesti, geometrie chiare, processo trasparente.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.5rem;">
+          <a href="CV_Marco_Mastandrea.pdf" target="_blank" class="btn" style="font-size:10px;">Curriculum →</a>
+          <a href="https://www.linkedin.com/in/marcomastandrea-/" target="_blank" rel="noopener" class="btn" style="font-size:10px;">LinkedIn</a>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="edu-list">
+          <div class="edu-item">
+            <span class="edu-year">2026<br>Presente</span>
+            <div class="edu-body">
+              <div class="edu-title">Libero professionista — Architetto</div>
+              <div class="edu-place">Studio Marco Mastandrea · Capaccio Paestum</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-year">2024–2026</span>
+            <div class="edu-body">
+              <div class="edu-title">Master II livello — Climate Resilient Urban Design</div>
+              <div class="edu-place">Università Federico II · Napoli · 110L</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-year">2022–2024</span>
+            <div class="edu-body">
+              <div class="edu-title">Laurea Magistrale in Architettura LM-4</div>
+              <div class="edu-place">Politecnico di Torino · 108/110</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-year">02–06 2023</span>
+            <div class="edu-body">
+              <div class="edu-title">Erasmus+</div>
+              <div class="edu-place">Université de Liège · Belgio</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-year">2017–2021</span>
+            <div class="edu-body">
+              <div class="edu-title">Laurea Triennale in Scienze dell'Architettura</div>
+              <div class="edu-place">Università Federico II · Napoli</div>
+            </div>
+          </div>
+          <div class="edu-item">
+            <span class="edu-year">2011–2016</span>
+            <div class="edu-body">
+              <div class="edu-title">Diploma maturità scientifica</div>
+              <div class="edu-place">Liceo G.B. Piranesi · Capaccio Paestum</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div class="wrap" id="contatti">
+  <section class="contact">
+    <div class="contact-row">
+      <div>
+        <h2 class="contact-title">Parliamo<br>del tuo<br>progetto</h2>
+        <p class="contact-sub">Il primo incontro è sempre gratuito. Una chiamata di 30 minuti per capire cosa vuoi fare e come posso aiutarti.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:ma.marcomasta@gmail.com" class="contact-link">
+          Email
+          <span>ma.marcomasta@gmail.com</span>
+        </a>
+        <a href="tel:+393311483809" class="contact-link">
+          Telefono
+          <span>+39 331 1483809</span>
+        </a>
+        <a href="https://www.linkedin.com/in/marcomastandrea-/" target="_blank" rel="noopener" class="contact-link">
+          LinkedIn
+          <span>marcomastandrea-</span>
+        </a>
+        <a href="https://instagram.com/udirethinking" target="_blank" rel="noopener" class="contact-link">
+          Instagram
+          <span>@udirethinking</span>
+        </a>
+        <a href="contatt.vcf" class="contact-link">
+          Aggiungi in rubrica
+          <span>scarica vCard</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-l">© 2026 Marco Mastandrea Architetto</span>
+  <span class="footer-r">Capaccio Paestum · IT</span>
+</footer>
+
+<script>
+// Portal inline redirect
+const input = document.getElementById('portal-code');
+const btn   = document.getElementById('portal-go');
+
+input.addEventListener('input', function() {
+  const pos = this.selectionStart;
+  this.value = this.value.toUpperCase();
+  this.setSelectionRange(pos, pos);
+});
+
+function goPortal() {
+  const code = input.value.trim().toUpperCase();
+  if (!code) { input.focus(); return; }
+  window.location.href = 'stato.html?code=' + encodeURIComponent(code);
+}
+
+btn.addEventListener('click', goPortal);
+input.addEventListener('keydown', e => { if (e.key === 'Enter') goPortal(); });
+</script>
+
+</body>
+</html>
