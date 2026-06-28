@@ -151,7 +151,7 @@ window.PROGETTI_DATA = [
        {
         "date": "2026-05-13",
         "title": "Avvio progetto",
-        "description": "Prima riunione con il cliente. Definiti i requisiti principali, il budget di riferimento e la tempistica indicativa del progetto."
+        "description": "Prima riunione con il committente. L'avvio ufficiale del progetto é posticipato a 3 mesi dalla data odierna. Sono stati definiti i requisiti principali e alcuni spazi di riferimento."
       },
       {
         "date": "2026-05-10",
