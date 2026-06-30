@@ -175,7 +175,7 @@ window.PROGETTI_DATA = [
       {
         "name": "Brief",
         "status": "in_corso",
-        "description": "Raccolta della documentazione contenuta nelle Norme Tecniche di Attuazione pubblicate con l'adozione del PUC al link (https://comune.capaccio.sa.it/puc/), e studio delle relazioni grafiche allegate.",
+        "description": "Raccolta della documentazione contenuta nelle Norme Tecniche di Attuazione pubblicate con l'adozione del PUC al link (https://comune.capaccio.sa.it/puc/), e studio delle relazioni grafiche allegate. L'obiettivo è di: - individuare punti deboli della proposta presentata nel PUC e rinforzarli delocalizzando l'intervento su altri lotti; - A supporto della delocalizzazione degli interventi, presentare una ricca documentazione su come il territorio abbia necessità di svilupparsi verso altri luoghi, magari un nuovo quartiere popolare. Rinforzare la difesa evidenziando l'importanza del terreno nei pressi della propria abitazione; - produzione e presentazione di tutti gli elaborati finali: osservazione, relazione urbanistica, stralci cartografici.",
         "progress": 10
       },
       {
