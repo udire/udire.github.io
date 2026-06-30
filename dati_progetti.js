@@ -219,4 +219,4 @@ window.PROGETTI_DATA = [
   
     ];
 },
-]
+];
