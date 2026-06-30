@@ -217,5 +217,6 @@ window.PROGETTI_DATA = [
       },
   
   
-];
+    ];
+},
 ]
