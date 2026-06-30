@@ -159,7 +159,7 @@ window.PROGETTI_DATA = [
         "date": "2026-05-10",
         "title": "Ricerca riferimenti",
         "description": "Di tanto in tanto il sottoscritto, unitamente alla committente, si inoltrano reel carini. Sarà cura del progettista riconoscere la qualità architettonica dei manufatti senza confondersi con l'aesthetic di IG."
-      },
+      }
     ]
   },
 
@@ -214,9 +214,9 @@ window.PROGETTI_DATA = [
         "date": "2026-05-13",
         "title": "Studio dei nuovi elaborati",
         "description": "Per presentare le osservazioni o i contributi al Piano Urbanistico Comunale (PUC) di Capaccio Paestum, il termine standard previsto dalla normativa regionale è di 60 giorni dalla data di pubblicazione dell'avviso di adozione, avvenuta ieri 29 Giugno 2026."
-      },
+      }
   
   
-    ];
-},
+    ]
+  }
 ];
