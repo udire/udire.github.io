@@ -216,7 +216,6 @@ window.PROGETTI_DATA = [
         "description": "Per presentare le osservazioni o i contributi al Piano Urbanistico Comunale (PUC) di Capaccio Paestum, il termine standard previsto dalla normativa regionale è di 60 giorni dalla data di pubblicazione dell'avviso di adozione, avvenuta ieri 29 Giugno 2026."
       },
   
-
-
   
 ];
+}
