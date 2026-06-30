@@ -101,6 +101,8 @@ window.PROGETTI_DATA = [
     ]
   },
 
+
+
   
   {
     "codice": "MMASBUBA",
@@ -161,4 +163,60 @@ window.PROGETTI_DATA = [
     ]
   },
 
+
+{
+    "codice": "URB26AS",
+    "projectName": "Osservazioni su destinazione assegnata dal PUC",
+    "client": "Angela",
+    "status": "In corso",
+    "lastUpdate": "2026-06-30",
+    "location": "Capaccio Paestum, IT",
+    "phases": [
+      {
+        "name": "Brief",
+        "status": "in_corso",
+        "description": "Raccolta della documentazione contenuta nelle Norme Tecniche di Attuazione pubblicate con l'adozione del PUC al link (https://comune.capaccio.sa.it/puc/), e studio delle relazioni grafiche allegate.",
+        "progress": 10
+      },
+      {
+        "name": "Concept",
+        "status": "non_iniziata",
+        "description": "Elaborazione delle prime idee progettuali, moodboard e schemi distributivi.",
+        "progress": 0
+      },
+      {
+        "name": "Sviluppo Progetto",
+        "status": "non_iniziata",
+        "description": "Definizione delle soluzioni architettoniche, materiali, layout degli spazi interni ed esterni. Coordinamento con i consulenti strutturali e impiantistici.",
+        "progress": 0
+      },
+      {
+        "name": "Revisione Cliente",
+        "status": "non_iniziata",
+        "description": "Presentazione del progetto definitivo al cliente per approvazione e eventuali modifiche.",
+        "progress": 0
+      },
+      {
+        "name": "Elaborati Finali",
+        "status": "non_iniziata",
+        "description": "Produzione di tutti gli elaborati tecnici: piante, sezioni, prospetti, dettagli costruttivi e computo metrico.",
+        "progress": 0
+      },
+      {
+        "name": "Consegna",
+        "status": "non_iniziata",
+        "description": "Consegna degli elaborati finali, assistenza alla direzione lavori e chiusura del progetto.",
+        "progress": 0
+      }
+    ],
+    "updates": [
+       {
+        "date": "2026-05-13",
+        "title": "Studio dei nuovi elaborati",
+        "description": "Per presentare le osservazioni o i contributi al Piano Urbanistico Comunale (PUC) di Capaccio Paestum, il termine standard previsto dalla normativa regionale è di 60 giorni dalla data di pubblicazione dell'avviso di adozione, avvenuta ieri 29 Giugno 2026."
+      },
+  
+
+
+  
 ];
