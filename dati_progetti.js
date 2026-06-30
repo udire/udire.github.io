@@ -179,33 +179,33 @@ window.PROGETTI_DATA = [
         "progress": 10
       },
       {
-        "name": "Concept",
+        "name": "Analisi del territorio",
         "status": "non_iniziata",
-        "description": "Elaborazione delle prime idee progettuali, moodboard e schemi distributivi.",
+        "description": "Individuare punti deboli della proposta presentata nel PUC e rinforzarli delocalizzando l'intervento su altri lotti.",
         "progress": 0
       },
       {
-        "name": "Sviluppo Progetto",
+        "name": "Relazione urbanistica",
         "status": "non_iniziata",
-        "description": "Definizione delle soluzioni architettoniche, materiali, layout degli spazi interni ed esterni. Coordinamento con i consulenti strutturali e impiantistici.",
+        "description": "A supporto della delocalizzazione degli interventi, presentare una ricca documentazione su come il territorio abbia necessità di svilupparsi verso altri luoghi, magari un nuovo quartiere popolare. Rinforzare la difesa evidenziando l'importanza del terreno nei pressi della propria abitazione.",
         "progress": 0
       },
       {
         "name": "Revisione Cliente",
         "status": "non_iniziata",
-        "description": "Presentazione del progetto definitivo al cliente per approvazione e eventuali modifiche.",
+        "description": "Presentazione della relazione al cliente per approvazione e eventuali modifiche.",
         "progress": 0
       },
       {
         "name": "Elaborati Finali",
         "status": "non_iniziata",
-        "description": "Produzione di tutti gli elaborati tecnici: piante, sezioni, prospetti, dettagli costruttivi e computo metrico.",
+        "description": "Produzione di tutti gli elaborati finali: osservazione, relazione urbanistica, stralci cartografici.",
         "progress": 0
       },
       {
         "name": "Consegna",
         "status": "non_iniziata",
-        "description": "Consegna degli elaborati finali, assistenza alla direzione lavori e chiusura del progetto.",
+        "description": "Consegna degli elaborati finali entro il 29 agosto 2026",
         "progress": 0
       }
     ],
