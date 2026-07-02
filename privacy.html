@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy & Cookie Policy — Marco Mastandrea Architetto</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+.page-hero {
+  padding: calc(58px + 5rem) 0 4rem;
+  border-bottom: 1px solid var(--rule);
+}
+.page-eyebrow {
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gray); margin-bottom: 1.25rem; display: block;
+}
+.page-h1 {
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-weight: 300; letter-spacing: -.04em; line-height: .95;
+}
+.page-meta {
+  margin-top: 1.75rem;
+  display: flex; flex-wrap: wrap; gap: .5rem 2rem;
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--gray);
+}
+
+/* LAYOUT */
+.policy-wrap {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 5rem;
+  padding: 5rem 0 7rem;
+  align-items: start;
+}
+@media (max-width: 700px) {
+  .policy-wrap { grid-template-columns: 1fr; gap: 3rem; }
+  .policy-toc  { display: none; }
+}
+
+/* TOC */
+.policy-toc {
+  position: sticky; top: calc(58px + 2rem);
+}
+.toc-label {
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gray); margin-bottom: 1rem; display: block;
+}
+.toc-link {
+  display: block;
+  font-size: 11px; letter-spacing: .06em;
+  color: var(--gray); padding: .35rem 0;
+  border-left: 1px solid var(--rule);
+  padding-left: .75rem;
+  transition: color .18s, border-color .18s;
+  line-height: 1.4;
+}
+.toc-link:hover { color: var(--black); border-color: var(--black); }
+.toc-link.active { color: var(--black); border-color: var(--black); }
+
+/* CONTENT */
+.policy-content { max-width: 640px; }
+.policy-section  { padding: 2.5rem 0; border-top: 1px solid var(--rule); }
+.policy-section:first-child { border-top: none; padding-top: 0; }
+
+.policy-h2 {
+  font-size: 1.1rem; font-weight: 400; letter-spacing: -.01em;
+  margin-bottom: 1rem;
+}
+.policy-h3 {
+  font-size: .85rem; font-weight: 500; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--gray);
+  margin: 1.5rem 0 .5rem;
+}
+.policy-p {
+  font-size: 13px; color: #444; line-height: 1.8; margin-bottom: .9rem;
+}
+.policy-p:last-child { margin-bottom: 0; }
+.policy-p a {
+  color: var(--black); border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px; transition: border-color .18s;
+}
+.policy-p a:hover { border-color: var(--black); }
+
+/* TABLE */
+.cookie-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 12px; margin: 1rem 0;
+}
+.cookie-table th {
+  text-align: left; font-weight: 500; font-size: 10px;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--gray);
+  padding: .6rem .75rem; border-bottom: 1px solid var(--rule);
+}
+.cookie-table td {
+  padding: .75rem; border-bottom: 1px solid var(--rule);
+  color: #444; line-height: 1.55; vertical-align: top;
+}
+.cookie-table tr:last-child td { border-bottom: none; }
+.cookie-table td:first-child { font-family: 'Geist','Inter',monospace; font-size: 11px; color: var(--black); white-space: nowrap; }
+
+/* HIGHLIGHT BOX */
+.info-box {
+  border: 1px solid var(--rule); padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.info-box-icon { flex-shrink: 0; margin-top: 2px; color: var(--gray); }
+.info-box-text { font-size: 12px; color: var(--gray); line-height: 1.75; }
+
+/* RIGHTS GRID */
+.rights-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; border: 1px solid var(--rule); margin-top: 1rem;
+}
+@media (max-width: 500px) { .rights-grid { grid-template-columns: 1fr; } }
+.right-item {
+  padding: 1.1rem 1.25rem;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.right-item:nth-child(2n) { border-right: none; }
+.right-item:nth-last-child(-n+2) { border-bottom: none; }
+@media (max-width: 500px) {
+  .right-item { border-right: none; }
+  .right-item:last-child { border-bottom: none; }
+}
+.right-title { font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; margin-bottom: .25rem; }
+.right-desc  { font-size: 11px; color: var(--gray); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">M. Mastandrea</a>
+  <div class="nav-links">
+    <a href="chi-sono.html" class="nav-link">Chi sono</a>
+    <a href="progetti.html" class="nav-link">Lavori</a>
+    <a href="contatti.html" class="nav-link">Contatti</a>
+    <a href="stato.html" class="nav-cta nav-link">Area cliente →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <a href="index.html" class="back" style="margin-bottom:2rem; display:inline-flex;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Home
+    </a>
+    <span class="page-eyebrow">Informativa legale</span>
+    <h1 class="page-h1">Privacy &amp;<br>Cookie Policy</h1>
+    <div class="page-meta">
+      <span>Titolare: Marco Mastandrea</span>
+      <span>Ultimo aggiornamento: luglio 2026</span>
+      <span>Versione 1.0</span>
+    </div>
+  </div>
+
+  <div class="policy-wrap">
+
+    <!-- TOC -->
+    <nav class="policy-toc" aria-label="Indice">
+      <span class="toc-label">Indice</span>
+      <a href="#titolare"    class="toc-link">Titolare del trattamento</a>
+      <a href="#dati"        class="toc-link">Dati raccolti</a>
+      <a href="#finalita"    class="toc-link">Finalità e base giuridica</a>
+      <a href="#cookie"      class="toc-link">Cookie</a>
+      <a href="#terze-parti" class="toc-link">Servizi di terze parti</a>
+      <a href="#conservazione" class="toc-link">Conservazione</a>
+      <a href="#diritti"     class="toc-link">I tuoi diritti</a>
+      <a href="#minori"      class="toc-link">Minori</a>
+      <a href="#modifiche"   class="toc-link">Modifiche</a>
+      <a href="#contatti-privacy" class="toc-link">Contatti</a>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="policy-content">
+
+      <div class="info-box">
+        <svg class="info-box-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p class="info-box-text">Questo sito non utilizza cookie di profilazione, non installa tracker di terze parti e non cede dati a soggetti commerciali. La presente informativa descrive in modo trasparente le poche informazioni tecniche trattate durante la navigazione.</p>
+      </div>
+
+      <!-- 1 -->
+      <section class="policy-section" id="titolare">
+        <h2 class="policy-h2">1. Titolare del trattamento</h2>
+        <p class="policy-p">Il titolare del trattamento dei dati personali è:</p>
+        <p class="policy-p">
+          <strong>Marco Mastandrea Architetto</strong><br>
+          Via Capaccio, 80 — 84047 Capaccio Paestum (SA), Italia<br>
+          Ordine Architetti P.P.C. di Salerno — N. 3719<br>
+          Email: <a href="mailto:ma.marcomasta@gmail.com">ma.marcomasta@gmail.com</a><br>
+          Telefono: <a href="tel:+393311483809">+39 331 1483809</a>
+        </p>
+      </section>
+
+      <!-- 2 -->
+      <section class="policy-section" id="dati">
+        <h2 class="policy-h2">2. Dati raccolti</h2>
+
+        <h3 class="policy-h3">Dati di navigazione</h3>
+        <p class="policy-p">I sistemi informatici e le procedure software deputate al funzionamento di questo sito acquisiscono, nel corso del loro normale esercizio, alcuni dati la cui trasmissione è implicita nell'uso dei protocolli di comunicazione di internet. Si tratta di informazioni non raccolte per essere associate a interessati identificati, ma che per loro stessa natura potrebbero, attraverso elaborazioni e associazioni con dati detenuti da terzi, permettere di identificare gli utenti. In questa categoria rientrano gli indirizzi IP o i nomi a dominio dei computer utilizzati dagli utenti che si connettono al sito, gli indirizzi in notazione URI (Uniform Resource Identifier) delle risorse richieste, l'orario della richiesta, il metodo utilizzato nel sottoporre la richiesta al server, la dimensione del file ottenuto in risposta, il codice numerico indicante lo stato della risposta data dal server e altri parametri relativi al sistema operativo e all'ambiente informatico dell'utente. Questi dati vengono utilizzati al solo fine di ricavare informazioni statistiche anonime sull'uso del sito e di controllarne il corretto funzionamento. I dati potrebbero essere utilizzati per l'accertamento di responsabilità in caso di ipotetici reati informatici ai danni del sito.</p>
+
+        <h3 class="policy-h3">Dati forniti volontariamente</h3>
+        <p class="policy-p">L'invio facoltativo, esplicito e volontario di messaggi agli indirizzi di contatto indicati su questo sito comporta la successiva acquisizione dell'indirizzo email del mittente, necessario per rispondere alle richieste, nonché degli eventuali altri dati personali inseriti nella comunicazione. I dati inviati tramite email o telefono sono trattati esclusivamente per rispondere alla richiesta ricevuta.</p>
+
+        <h3 class="policy-h3">Dati tecnici del portale cliente</h3>
+        <p class="policy-p">Il portale clienti (pagina "Stato progetto") utilizza esclusivamente la memoria di sessione del browser (<code>sessionStorage</code>) per mantenere attiva la sessione durante la visita. Questi dati restano confinati al dispositivo dell'utente, non vengono mai trasmessi a server esterni e si cancellano automaticamente alla chiusura della scheda del browser. Non viene effettuata nessuna profilazione.</p>
+      </section>
+
+      <!-- 3 -->
+      <section class="policy-section" id="finalita">
+        <h2 class="policy-h2">3. Finalità e base giuridica del trattamento</h2>
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Finalità</th>
+              <th>Base giuridica</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Funzionamento tecnico del sito</td>
+              <td>Interesse legittimo del titolare (art. 6 c. 1 lett. f GDPR)</td>
+            </tr>
+            <tr>
+              <td>Risposta a richieste di contatto</td>
+              <td>Esecuzione di misure precontrattuali (art. 6 c. 1 lett. b GDPR)</td>
+            </tr>
+            <tr>
+              <td>Gestione del portale clienti</td>
+              <td>Esecuzione del contratto (art. 6 c. 1 lett. b GDPR)</td>
+            </tr>
+            <tr>
+              <td>Obblighi legali e fiscali</td>
+              <td>Obbligo legale (art. 6 c. 1 lett. c GDPR)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="policy-p">I dati non vengono ceduti a terzi per finalità di marketing o profilazione commerciale e non sono oggetto di trasferimento al di fuori dello Spazio Economico Europeo.</p>
+      </section>
+
+      <!-- 4 -->
+      <section class="policy-section" id="cookie">
+        <h2 class="policy-h2">4. Cookie</h2>
+
+        <h3 class="policy-h3">Cosa sono i cookie</h3>
+        <p class="policy-p">I cookie sono piccoli file di testo che un sito web invia al browser dell'utente, dove vengono memorizzati e poi ritrasmessi al sito alla visita successiva.</p>
+
+        <h3 class="policy-h3">Cookie utilizzati da questo sito</h3>
+        <p class="policy-p">Questo sito non installa cookie di profilazione, cookie di tracciamento o cookie di terze parti a scopo pubblicitario. L'unico meccanismo di memorizzazione utilizzato è il <code>sessionStorage</code> del browser, che non è un cookie e non persiste oltre la sessione di navigazione.</p>
+
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Nome / Tipo</th>
+              <th>Scopo</th>
+              <th>Durata</th>
+              <th>Prima / terza parte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>sessionStorage<br><em style="font-style:italic; font-size:10px; color:#888;">(intro-seen)</em></td>
+              <td>Ricorda se l'animazione introduttiva è già stata mostrata nella sessione corrente</td>
+              <td>Fine sessione (chiusura scheda)</td>
+              <td>Prima parte</td>
+            </tr>
+            <tr>
+              <td>Google Fonts<br><em style="font-style:italic; font-size:10px; color:#888;">(cache browser)</em></td>
+              <td>Caricamento font tipografici. Google potrebbe registrare l'indirizzo IP per il corretto funzionamento del CDN; non sono impostati cookie di profilazione</td>
+              <td>Cache browser (variabile)</td>
+              <td>Terza parte — Google LLC</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="info-box" style="margin-top:1.25rem;">
+          <svg class="info-box-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <p class="info-box-text">Non essendo installati cookie che richiedono consenso ai sensi dell'art. 122 del D.Lgs. 196/2003 (Codice Privacy) e delle Linee guida cookie del Garante, questo sito non mostra un banner di consenso ai cookie. Qualora in futuro venissero integrati servizi di terze parti che installano cookie non tecnici, l'informativa verrà aggiornata e verrà predisposto un sistema di gestione del consenso.</p>
+        </div>
+
+        <h3 class="policy-h3">Come disabilitare i cookie</h3>
+        <p class="policy-p">L'utente può gestire le proprie preferenze sui cookie direttamente dal browser. Di seguito i link alle istruzioni dei browser più diffusi:</p>
+        <p class="policy-p">
+          <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Chrome</a> ·
+          <a href="https://support.mozilla.org/it/kb/protezione-antitracciamento-avanzata-firefox" target="_blank" rel="noopener">Firefox</a> ·
+          <a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a> ·
+          <a href="https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Edge</a>
+        </p>
+        <p class="policy-p">Per cancellare il <code>sessionStorage</code>: aprire gli strumenti sviluppatore del browser (F12) → scheda "Archiviazione" o "Application" → SessionStorage → selezionare il dominio → eliminare le voci.</p>
+      </section>
+
+      <!-- 5 -->
+      <section class="policy-section" id="terze-parti">
+        <h2 class="policy-h2">5. Servizi di terze parti</h2>
+        <p class="policy-p">Il sito utilizza i seguenti servizi esterni:</p>
+
+        <h3 class="policy-h3">Google Fonts</h3>
+        <p class="policy-p">Servizio di tipografia web fornito da Google LLC (USA). Al caricamento della pagina, il browser dell'utente contatta i server di Google per scaricare il font. Google potrebbe registrare l'indirizzo IP a fini tecnici. Il trasferimento avviene verso gli USA sulla base delle Clausole Contrattuali Standard approvate dalla Commissione Europea. Privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+        <h3 class="policy-h3">GitHub Pages</h3>
+        <p class="policy-p">Il sito è ospitato su GitHub Pages, servizio di GitHub Inc. (USA, di proprietà di Microsoft). GitHub raccoglie automaticamente i log di accesso al server per la sicurezza e il corretto funzionamento del servizio. Privacy policy: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">docs.github.com</a>.</p>
+
+        <h3 class="policy-h3">Immagini esterne (Unsplash / Pexels)</h3>
+        <p class="policy-p">Alcune immagini del sito sono caricate tramite CDN di Unsplash e Pexels. Il caricamento comporta una connessione ai rispettivi server, che potrebbero registrare l'indirizzo IP dell'utente. Le immagini sono utilizzate a scopo puramente illustrativo.</p>
+      </section>
+
+      <!-- 6 -->
+      <section class="policy-section" id="conservazione">
+        <h2 class="policy-h2">6. Conservazione dei dati</h2>
+        <p class="policy-p">I dati di navigazione vengono conservati per il tempo strettamente necessario alle finalità tecniche e di sicurezza, comunque non oltre 12 mesi. Le comunicazioni email ricevute attraverso i recapiti indicati nel sito vengono conservate per il tempo necessario a gestire la richiesta e, laddove siano intercorse relazioni contrattuali, per i termini di legge applicabili (in genere 10 anni per la documentazione fiscale).</p>
+        <p class="policy-p">I dati archiviati nel <code>sessionStorage</code> si cancellano automaticamente alla chiusura del browser e non vengono mai trasmessi al titolare.</p>
+      </section>
+
+      <!-- 7 -->
+      <section class="policy-section" id="diritti">
+        <h2 class="policy-h2">7. I tuoi diritti</h2>
+        <p class="policy-p">In qualità di interessato, hai il diritto di esercitare in qualsiasi momento i seguenti diritti ai sensi degli artt. 15–22 del Regolamento UE 2016/679 (GDPR):</p>
+
+        <div class="rights-grid">
+          <div class="right-item">
+            <div class="right-title">Accesso</div>
+            <div class="right-desc">Ottenere conferma dell'esistenza di dati che ti riguardano e riceverne copia.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-title">Rettifica</div>
+            <div class="right-desc">Richiedere la correzione di dati inesatti o incompleti.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-title">Cancellazione</div>
+            <div class="right-desc">Ottenere la cancellazione dei tuoi dati (diritto all'oblio), salvo obblighi di legge.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-title">Limitazione</div>
+            <div class="right-desc">Richiedere la limitazione del trattamento in specifiche circostanze.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-title">Portabilità</div>
+            <div class="right-desc">Ricevere i tuoi dati in formato strutturato e trasferirli a un altro titolare.</div>
+          </div>
+          <div class="right-item">
+            <div class="right-title">Opposizione</div>
+            <div class="right-desc">Opporsi al trattamento basato sull'interesse legittimo del titolare.</div>
+          </div>
+        </div>
+
+        <p class="policy-p" style="margin-top:1.25rem;">Per esercitare i tuoi diritti, scrivi a <a href="mailto:ma.marcomasta@gmail.com">ma.marcomasta@gmail.com</a>. Il titolare risponderà entro 30 giorni dalla ricezione della richiesta. Hai inoltre il diritto di proporre reclamo all'Autorità di controllo competente: in Italia il <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a> (www.garanteprivacy.it).</p>
+      </section>
+
+      <!-- 8 -->
+      <section class="policy-section" id="minori">
+        <h2 class="policy-h2">8. Minori</h2>
+        <p class="policy-p">Questo sito non è rivolto a minori di 16 anni e non raccoglie consapevolmente dati personali di minori. Qualora il titolare venisse a conoscenza di aver ricevuto dati di un minore senza il consenso del genitore o tutore, provvederà alla loro cancellazione immediata.</p>
+      </section>
+
+      <!-- 9 -->
+      <section class="policy-section" id="modifiche">
+        <h2 class="policy-h2">9. Modifiche alla presente informativa</h2>
+        <p class="policy-p">Il titolare si riserva il diritto di apportare modifiche alla presente informativa in qualsiasi momento, dandone pubblicità agli utenti attraverso l'aggiornamento di questa pagina con indicazione della data di revisione. Si consiglia di consultare periodicamente questa pagina, con riferimento alla data dell'ultima modifica indicata in calce.</p>
+        <p class="policy-p">In caso di modifiche sostanziali che richiedano un nuovo consenso o che riguardino dati già in possesso del titolare, gli interessati verranno informati direttamente.</p>
+      </section>
+
+      <!-- 10 -->
+      <section class="policy-section" id="contatti-privacy">
+        <h2 class="policy-h2">10. Contatti</h2>
+        <p class="policy-p">Per qualsiasi domanda relativa alla presente informativa o al trattamento dei tuoi dati personali:</p>
+        <p class="policy-p">
+          <strong>Marco Mastandrea Architetto</strong><br>
+          <a href="mailto:ma.marcomasta@gmail.com">ma.marcomasta@gmail.com</a><br>
+          <a href="tel:+393311483809">+39 331 1483809</a><br>
+          Via Capaccio, 80 — 84047 Capaccio Paestum (SA)
+        </p>
+      </section>
+
+    </div><!-- /policy-content -->
+  </div><!-- /policy-wrap -->
+
+</div><!-- /wrap -->
+
+<footer class="footer">
+  <span>© 2026 Marco Mastandrea Architetto</span>
+  <a href="privacy.html" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gray); border-bottom:1px solid var(--rule);">Privacy &amp; Cookie Policy</a>
+</footer>
+
+<script>
+// Highlight active TOC item on scroll
+const sections = document.querySelectorAll('.policy-section[id]');
+const links    = document.querySelectorAll('.toc-link');
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const match = document.querySelector(`.toc-link[href="#${e.target.id}"]`);
+      if (match) match.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+
+sections.forEach(s => obs.observe(s));
+</script>
+
+</body>
+</html>
