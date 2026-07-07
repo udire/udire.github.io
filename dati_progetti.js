@@ -232,7 +232,7 @@ window.PROGETTI_DATA = [
       {
         "date": "2026-07-06",
         "title": "Avviso avvenuta pubblicazione sul BURC",
-        "description": "A decorrere da oggi 6 Luglio, decorrono i 60gg di tempo per presentare le osservazioni (https://portale-capaccio.cloud.cstsistemisud.it/web/trasparenza/albo-pretorio?p_p_id=detailscontroller_WAR_maggiolialbopretorioportlet&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_resource_id=downloadAllegato&p_p_cacheability=cacheLevelPage&p_p_col_id=column-2&p_p_col_count=1&_detailscontroller_WAR_maggiolialbopretorioportlet_targetId=3&_detailscontroller_WAR_maggiolialbopretorioportlet_backURL=https%3A%2F%2Fportale-capaccio.cloud.cstsistemisud.it%2Fweb%2Ftrasparenza%2Falbo-pretorio%3Fp_p_id%3Ddetailscontroller_WAR_maggiolialbopretorioportlet%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dcolumn-2%26p_p_col_count%3D1%26_detailscontroller_WAR_maggiolialbopretorioportlet_isBackURL%3Dtrue%26_detailscontroller_WAR_maggiolialbopretorioportlet_targetId%3D3%26_detailscontroller_WAR_maggiolialbopretorioportlet_attoRegistro%3DENTRAMBI%26_detailscontroller_WAR_maggiolialbopretorioportlet_documentoId%3D55985%26_detailscontroller_WAR_maggiolialbopretorioportlet_profiloId%3D2001%26p_r_p_564233524_menuItemId%3D101&_detailscontroller_WAR_maggiolialbopretorioportlet_serial=2099235&_detailscontroller_WAR_maggiolialbopretorioportlet_nome=Avviso_di_avvenuto_deposito_signed_ori.stamped.pdf)"
+        "description": "A decorrere da oggi 6 Luglio, decorrono i 60gg di tempo per presentare le osservazioni (urly.it/31g48m)"
       },
       {
         "date": "2026-05-13",
