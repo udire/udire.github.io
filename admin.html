@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin — Gestionale Progetti</title>
+  <style>
+/* ═══════════════════════════════════════════════
+   GESTIONALE PROGETTI — Marco Mastandrea
+   Nessuna dipendenza esterna.
+   ═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:  #0a0a0a;
+  --white:  #ffffff;
+  --paper:  #f7f7f7;
+  --rule:   rgba(10,10,10,.1);
+  --gray:   #888;
+  --blue:   #1246ff;
+  --blue-bg:#eef1ff;
+  --green:  #16a34a;
+  --green-bg:#f0fdf4;
+  --amber:  #d97706;
+  --amber-bg:#fffbeb;
+  --red:    #dc2626;
+  --red-bg: #fef2f2;
+  --f: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'SFMono-Regular','Consolas','Liberation Mono',monospace;
+}
+
+body {
+  background: var(--paper);
+  color: var(--black);
+  font-family: var(--f);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--black); color: var(--white); }
+
+/* ── NAV ─────────────────────────────────────── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  height: 52px;
+  background: var(--black); color: var(--white);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 1.75rem;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.nav-logo { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; opacity: .9; }
+.nav-right { display: flex; align-items: center; gap: .75rem; }
+.nav-badge {
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  padding: 4px 10px; border: 1px solid rgba(255,255,255,.15);
+  color: rgba(255,255,255,.5);
+}
+.nav-hint { font-size: 10px; color: rgba(255,255,255,.3); letter-spacing: .08em; }
+
+/* ── LAYOUT ──────────────────────────────────── */
+.shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 52px);
+}
+@media (max-width: 800px) { .shell { grid-template-columns: 1fr; } }
+
+/* ── SIDEBAR ─────────────────────────────────── */
+.sidebar {
+  border-right: 1px solid var(--rule);
+  background: var(--white);
+  display: flex; flex-direction: column;
+  position: sticky; top: 52px;
+  height: calc(100vh - 52px);
+  overflow-y: auto;
+}
+.sidebar-section { padding: 1.25rem 1rem; border-bottom: 1px solid var(--rule); }
+.sidebar-label {
+  font-size: 9px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gray); margin-bottom: .75rem; display: block;
+}
+.proj-list { display: flex; flex-direction: column; gap: 4px; }
+.proj-item {
+  padding: .6rem .75rem; cursor: pointer;
+  border: 1px solid transparent;
+  transition: background .15s, border-color .15s;
+  border-radius: 2px;
+}
+.proj-item:hover { background: var(--paper); }
+.proj-item.active { background: var(--blue-bg); border-color: var(--blue); }
+.proj-item-code { font-size: 10px; letter-spacing: .14em; color: var(--gray); font-family: var(--mono); }
+.proj-item-name { font-size: 12px; font-weight: 500; margin-top: 2px; line-height: 1.3; }
+.proj-item-status { font-size: 9px; letter-spacing: .1em; text-transform: uppercase; margin-top: 3px; }
+.proj-item-status.in-corso { color: var(--blue); }
+.proj-item-status.completato { color: var(--green); }
+
+.sidebar-actions { padding: 1rem; display: flex; flex-direction: column; gap: 6px; }
+
+/* ── MAIN ────────────────────────────────────── */
+.main { padding: 2rem 2rem 5rem; max-width: 900px; }
+@media (max-width: 640px) { .main { padding: 1.25rem 1.25rem 4rem; } }
+
+/* ── TOOLBAR ─────────────────────────────────── */
+.toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: .75rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.toolbar-title { font-size: 1.1rem; font-weight: 600; letter-spacing: -.01em; }
+.toolbar-right { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+/* ── BUTTONS ─────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--f); font-size: 11px; font-weight: 500;
+  letter-spacing: .04em; padding: 7px 14px;
+  border: 1px solid var(--rule); background: var(--white);
+  color: var(--black); cursor: pointer;
+  transition: background .15s, border-color .15s, color .15s;
+  white-space: nowrap;
+}
+.btn:hover { background: var(--paper); border-color: #bbb; }
+.btn--primary { background: var(--black); color: var(--white); border-color: var(--black); }
+.btn--primary:hover { background: #333; border-color: #333; }
+.btn--blue { background: var(--blue); color: var(--white); border-color: var(--blue); }
+.btn--blue:hover { background: #0030cc; border-color: #0030cc; }
+.btn--green { background: var(--green); color: var(--white); border-color: var(--green); }
+.btn--green:hover { background: #15803d; border-color: #15803d; }
+.btn--danger { color: var(--red); border-color: var(--red-bg); }
+.btn--danger:hover { background: var(--red-bg); }
+.btn--sm { font-size: 10px; padding: 5px 10px; }
+
+/* ── CARD ────────────────────────────────────── */
+.card {
+  background: var(--white); border: 1px solid var(--rule);
+  margin-bottom: 1.25rem;
+}
+.card-head {
+  padding: 1rem 1.25rem; border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+}
+.card-head-title { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--gray); }
+.card-body { padding: 1.25rem; }
+
+/* ── FORM FIELDS ─────────────────────────────── */
+.field { margin-bottom: 1rem; }
+.field:last-child { margin-bottom: 0; }
+.field-label {
+  display: block; font-size: 10px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--gray);
+  margin-bottom: 4px;
+}
+.field-input, .field-select, .field-textarea {
+  width: 100%; font-family: var(--f); font-size: 13px;
+  padding: 8px 10px; border: 1px solid var(--rule);
+  background: var(--white); color: var(--black);
+  outline: none; transition: border-color .15s;
+  appearance: none;
+}
+.field-input:focus, .field-select:focus, .field-textarea:focus {
+  border-color: var(--black);
+}
+.field-input.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+.field-textarea { resize: vertical; min-height: 72px; line-height: 1.55; }
+.field-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px; cursor: pointer; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 600px) { .field-row { grid-template-columns: 1fr; } }
+.field-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+@media (max-width: 700px) { .field-row-3 { grid-template-columns: 1fr 1fr; } }
+
+/* ── PHASE TABLE ─────────────────────────────── */
+.phase-table { width: 100%; border-collapse: collapse; }
+.phase-table th {
+  text-align: left; font-size: 9px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--gray);
+  padding: .5rem .75rem; border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+.phase-table td { padding: .5rem .6rem; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+.phase-table tr:last-child td { border-bottom: none; }
+.phase-table tr:hover td { background: var(--paper); }
+.phase-num { font-size: 10px; color: var(--gray); font-family: var(--mono); width: 32px; }
+.phase-name-cell { font-size: 13px; font-weight: 500; min-width: 140px; }
+.phase-name-input {
+  width: 100%; font-family: var(--f); font-size: 12px; font-weight: 500;
+  border: 1px solid transparent; padding: 4px 6px; background: transparent;
+  outline: none; transition: border-color .15s;
+}
+.phase-name-input:focus { border-color: var(--black); background: var(--white); }
+.phase-select {
+  font-family: var(--f); font-size: 11px; padding: 4px 24px 4px 8px;
+  border: 1px solid var(--rule); background-color: var(--white);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 6px center;
+  cursor: pointer; outline: none; appearance: none;
+  transition: border-color .15s;
+}
+.phase-select:focus { border-color: var(--black); }
+.phase-select.completata { background-color: var(--green-bg); color: var(--green); border-color: var(--green); }
+.phase-select.in_corso   { background-color: var(--blue-bg);  color: var(--blue);  border-color: var(--blue); }
+.phase-select.non_iniziata { background-color: var(--paper); color: var(--gray); }
+.phase-progress {
+  width: 60px; font-family: var(--f); font-size: 12px;
+  border: 1px solid transparent; padding: 4px 6px; text-align: center;
+  outline: none; transition: border-color .15s;
+}
+.phase-progress:focus { border-color: var(--black); }
+.phase-desc-cell { font-size: 11px; color: var(--gray); max-width: 240px; }
+.phase-desc-input {
+  width: 100%; font-family: var(--f); font-size: 11px;
+  border: 1px solid transparent; padding: 4px 6px; background: transparent;
+  outline: none; resize: none; min-height: 36px; transition: border-color .15s;
+}
+.phase-desc-input:focus { border-color: var(--black); background: var(--white); }
+.phase-drag { cursor: grab; color: var(--gray); font-size: 14px; user-select: none; padding: 0 4px; }
+.phase-drag:active { cursor: grabbing; }
+
+/* ── UPDATE LIST ─────────────────────────────── */
+.update-item {
+  border: 1px solid var(--rule); margin-bottom: .75rem; background: var(--white);
+}
+.update-item-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .6rem 1rem; border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+.update-item-date { font-size: 11px; font-family: var(--mono); color: var(--gray); }
+.update-item-title-display { font-size: 13px; font-weight: 600; }
+.update-item-body { padding: .75rem 1rem; display: flex; flex-direction: column; gap: .5rem; }
+.update-item input, .update-item textarea {
+  width: 100%; font-family: var(--f); font-size: 12px;
+  border: 1px solid var(--rule); padding: 6px 9px;
+  outline: none; transition: border-color .15s; background: var(--white);
+}
+.update-item input:focus, .update-item textarea:focus { border-color: var(--black); }
+.update-item textarea { resize: vertical; min-height: 64px; line-height: 1.6; }
+
+/* ── BADGES ──────────────────────────────────── */
+.badge {
+  display: inline-block; font-size: 9px; letter-spacing: .14em;
+  text-transform: uppercase; padding: 3px 8px; border: 1px solid;
+}
+.badge-green  { background: var(--green-bg);  color: var(--green); border-color: var(--green); }
+.badge-blue   { background: var(--blue-bg);   color: var(--blue);  border-color: var(--blue); }
+.badge-gray   { background: var(--paper);     color: var(--gray);  border-color: var(--rule); }
+
+/* ── IMPORT / WELCOME ────────────────────────── */
+.welcome {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 60vh; text-align: center; gap: 1.25rem; padding: 2rem;
+}
+.welcome-title { font-size: 1.5rem; font-weight: 300; letter-spacing: -.02em; }
+.welcome-sub   { font-size: 13px; color: var(--gray); max-width: 400px; line-height: 1.7; }
+.drop-zone {
+  border: 2px dashed var(--rule); padding: 2.5rem 3rem;
+  text-align: center; cursor: pointer; transition: border-color .2s, background .2s;
+  max-width: 440px; width: 100%;
+}
+.drop-zone:hover, .drop-zone.dragover { border-color: var(--black); background: var(--paper); }
+.drop-zone input { display: none; }
+.drop-icon { font-size: 2rem; margin-bottom: .75rem; }
+.drop-label { font-size: 13px; color: var(--gray); }
+.drop-label strong { color: var(--black); }
+
+/* ── EXPORT PREVIEW ──────────────────────────── */
+.export-preview {
+  font-family: var(--mono); font-size: 11px; line-height: 1.6;
+  background: var(--black); color: #a8ff78;
+  padding: 1.25rem; max-height: 260px; overflow-y: auto;
+  white-space: pre-wrap; word-break: break-all;
+  border: 1px solid var(--rule);
+}
+
+/* ── TOAST ───────────────────────────────────── */
+#toast {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999;
+  background: var(--black); color: var(--white);
+  padding: .75rem 1.25rem; font-size: 12px; letter-spacing: .06em;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .25s, transform .25s;
+  pointer-events: none;
+}
+#toast.show { opacity: 1; transform: translateY(0); }
+
+/* ── EMPTY STATE ─────────────────────────────── */
+.empty { padding: 3rem; text-align: center; color: var(--gray); font-size: 13px; border: 1px dashed var(--rule); }
+
+/* ── CONFIRM DIALOG ─────────────────────────── */
+.overlay {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(0,0,0,.45);
+  display: none; align-items: center; justify-content: center;
+}
+.overlay.show { display: flex; }
+.dialog {
+  background: var(--white); border: 1px solid var(--rule);
+  padding: 1.75rem; max-width: 380px; width: 90%;
+}
+.dialog-title { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; }
+.dialog-msg   { font-size: 13px; color: var(--gray); margin-bottom: 1.25rem; line-height: 1.6; }
+.dialog-btns  { display: flex; justify-content: flex-end; gap: .5rem; }
+
+/* ── SCROLLBAR ───────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--rule); }
+::-webkit-scrollbar-thumb:hover { background: #bbb; }
+
+@media (max-width: 800px) {
+  .sidebar { display: none; }
+}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-logo">M. Mastandrea — Gestionale Progetti</span>
+  <div class="nav-right">
+    <span class="nav-hint" id="proj-count-label"></span>
+    <span class="nav-badge" id="save-status">Non salvato</span>
+  </div>
+</nav>
+
+<!-- SHELL -->
+<div class="shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <span class="sidebar-label">Progetti</span>
+      <div class="proj-list" id="proj-list">
+        <div style="font-size:11px; color:var(--gray); padding:.5rem 0;">Carica un file per iniziare.</div>
+      </div>
+    </div>
+    <div class="sidebar-actions">
+      <button class="btn btn--primary" onclick="newProject()">+ Nuovo progetto</button>
+      <button class="btn btn--green"   onclick="exportData()">↓ Esporta .js</button>
+      <label class="btn" style="cursor:pointer;">
+        ↑ Importa .js
+        <input type="file" accept=".js,.json" style="display:none" onchange="importFile(this)"/>
+      </label>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main" id="main-area">
+    <div class="welcome" id="welcome-screen">
+      <div class="welcome-title">Gestionale Progetti</div>
+      <p class="welcome-sub">Carica il file <code>dati_progetti.js</code> per iniziare a modificare i tuoi progetti. Puoi anche trasccinarlo direttamente qui.</p>
+      <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input-main').click()">
+        <div class="drop-icon">📂</div>
+        <div class="drop-label"><strong>Clicca o trascina</strong> il file <code>dati_progetti.js</code></div>
+        <input type="file" id="file-input-main" accept=".js,.json" onchange="importFile(this)"/>
+      </div>
+      <p style="font-size:11px; color:var(--gray);">oppure</p>
+      <button class="btn btn--primary" onclick="loadSampleData()">Carica dati di esempio</button>
+    </div>
+
+    <div id="editor-screen" style="display:none;"></div>
+  </main>
+
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- CONFIRM DIALOG -->
+<div class="overlay" id="confirm-overlay">
+  <div class="dialog">
+    <div class="dialog-title" id="confirm-title">Conferma</div>
+    <div class="dialog-msg"   id="confirm-msg"></div>
+    <div class="dialog-btns">
+      <button class="btn" onclick="closeConfirm()">Annulla</button>
+      <button class="btn btn--danger" id="confirm-ok">Elimina</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════
+   STATE
+   ═══════════════════════════════════════════════ */
+let DB       = [];          // array of project objects
+let activeIdx = null;       // index of currently selected project
+let confirmCb = null;       // pending confirm callback
+
+/* ═══════════════════════════════════════════════
+   IMPORT
+   ═══════════════════════════════════════════════ */
+function importFile(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => parseAndLoad(e.target.result);
+  reader.readAsText(file);
+  input.value = '';
+}
+
+function parseAndLoad(text) {
+  try {
+    // Try JSON first
+    let data;
+    if (text.trim().startsWith('[') || text.trim().startsWith('{')) {
+      data = JSON.parse(text);
+    } else {
+      // Strip the window.PROGETTI_DATA = [...]; wrapper
+      const match = text.match(/window\.PROGETTI_DATA\s*=\s*(\[[\s\S]*\])\s*;?/);
+      if (!match) throw new Error('Formato non riconosciuto');
+      data = JSON.parse(match[1]);
+    }
+    if (!Array.isArray(data)) data = [data];
+    DB = JSON.parse(JSON.stringify(data)); // deep clone
+    activeIdx = DB.length > 0 ? 0 : null;
+    renderAll();
+    toast('✓ File caricato — ' + DB.length + ' progett' + (DB.length === 1 ? 'o' : 'i'));
+  } catch(err) {
+    toast('⚠ Errore nel file: ' + err.message);
+  }
+}
+
+function loadSampleData() {
+  // Use the real data from dati_progetti.js if window.PROGETTI_DATA exists, else use a stub
+  if (window.PROGETTI_DATA && window.PROGETTI_DATA.length) {
+    DB = JSON.parse(JSON.stringify(window.PROGETTI_DATA));
+  } else {
+    DB = [{
+      codice: 'ESEMPIO01',
+      projectName: 'Progetto di esempio',
+      client: 'Cliente',
+      status: 'In corso',
+      lastUpdate: today(),
+      location: 'Capaccio Paestum, IT',
+      phases: [
+        { name: 'Brief',             status: 'completata',   description: 'Raccolta esigenze e sopralluogo.', progress: 100 },
+        { name: 'Concept',           status: 'in_corso',     description: 'Idee progettuali e moodboard.',   progress: 40  },
+        { name: 'Sviluppo Progetto', status: 'non_iniziata', description: 'Elaborazione definitiva.',        progress: 0   },
+        { name: 'Revisione Cliente', status: 'non_iniziata', description: 'Approvazione del progetto.',      progress: 0   },
+        { name: 'Elaborati Finali',  status: 'non_iniziata', description: 'Tavole tecniche complete.',       progress: 0   },
+        { name: 'Consegna',          status: 'non_iniziata', description: 'Consegna finale al cliente.',     progress: 0   }
+      ],
+      updates: [
+        { date: today(), title: 'Avvio progetto', description: 'Prima riunione con il cliente. Definiti i requisiti principali.' }
+      ]
+    }];
+  }
+  activeIdx = 0;
+  renderAll();
+  toast('✓ Dati di esempio caricati');
+}
+
+/* ═══════════════════════════════════════════════
+   EXPORT
+   ═══════════════════════════════════════════════ */
+function exportData() {
+  if (DB.length === 0) { toast('Nessun dato da esportare'); return; }
+  syncActiveToDB();
+  const json = JSON.stringify(DB, null, 2);
+  const output = `// ============================================================\n//  DATI PROGETTI — Marco Mastandrea Architetto\n//  Generato dal gestionale il ${new Date().toLocaleDateString('it-IT')}\n//\n//  STATI FASE:\n//    "completata"   → fase terminata\n//    "in_corso"     → fase attiva\n//    "non_iniziata" → fase futura\n// ============================================================\n\nwindow.PROGETTI_DATA = ${json};\n`;
+  const blob = new Blob([output], { type: 'text/javascript' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = 'dati_progetti.js'; a.click();
+  URL.revokeObjectURL(url);
+  setSaveStatus('Esportato');
+  toast('✓ File esportato — sostituisci su GitHub');
+}
+
+/* ═══════════════════════════════════════════════
+   RENDER ALL
+   ═══════════════════════════════════════════════ */
+function renderAll() {
+  document.getElementById('welcome-screen').style.display = 'none';
+  document.getElementById('editor-screen').style.display  = 'block';
+  renderSidebar();
+  renderEditor();
+  document.getElementById('proj-count-label').textContent = DB.length + ' progett' + (DB.length === 1 ? 'o' : 'i');
+}
+
+function renderSidebar() {
+  const list = document.getElementById('proj-list');
+  if (DB.length === 0) {
+    list.innerHTML = '<div style="font-size:11px; color:var(--gray); padding:.5rem 0;">Nessun progetto.</div>';
+    return;
+  }
+  list.innerHTML = DB.map((p, i) => {
+    const cls = i === activeIdx ? 'proj-item active' : 'proj-item';
+    const statusCls = p.status.toLowerCase().replace(' ','') === 'incorso' ? 'in-corso' : 'completato';
+    return `<div class="${cls}" onclick="selectProject(${i})">
+      <div class="proj-item-code">${p.codice || '—'}</div>
+      <div class="proj-item-name">${p.projectName || 'Senza nome'}</div>
+      <div class="proj-item-status ${statusCls}">${p.status || ''}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ═══════════════════════════════════════════════
+   PROJECT SELECTION
+   ═══════════════════════════════════════════════ */
+function selectProject(idx) {
+  syncActiveToDB();
+  activeIdx = idx;
+  renderAll();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ═══════════════════════════════════════════════
+   SYNC FORM → DB
+   ═══════════════════════════════════════════════ */
+function syncActiveToDB() {
+  if (activeIdx === null || !DB[activeIdx]) return;
+  const p = DB[activeIdx];
+
+  // Meta fields
+  ['codice','projectName','client','status','lastUpdate','location'].forEach(k => {
+    const el = document.getElementById('field-' + k);
+    if (el) p[k] = el.value.trim();
+  });
+
+  // Phases
+  const rows = document.querySelectorAll('.phase-row');
+  p.phases = Array.from(rows).map((row, i) => ({
+    name:        row.querySelector('.phase-name-input').value.trim(),
+    status:      row.querySelector('.phase-select').value,
+    description: row.querySelector('.phase-desc-input').value.trim(),
+    progress:    parseInt(row.querySelector('.phase-progress').value) || 0
+  }));
+
+  // Updates
+  const uItems = document.querySelectorAll('.update-item');
+  p.updates = Array.from(uItems).map(item => ({
+    date:        item.querySelector('[data-field="date"]').value,
+    title:       item.querySelector('[data-field="title"]').value.trim(),
+    description: item.querySelector('[data-field="desc"]').value.trim()
+  }));
+}
+
+/* ═══════════════════════════════════════════════
+   RENDER EDITOR
+   ═══════════════════════════════════════════════ */
+function renderEditor() {
+  const area = document.getElementById('editor-screen');
+
+  if (activeIdx === null || !DB[activeIdx]) {
+    area.innerHTML = `<div class="empty">Seleziona un progetto dalla barra laterale o creane uno nuovo.</div>`;
+    return;
+  }
+
+  const p = DB[activeIdx];
+
+  area.innerHTML = `
+    <!-- TOOLBAR -->
+    <div class="toolbar">
+      <div style="display:flex; align-items:center; gap:.75rem; flex-wrap:wrap;">
+        <span class="toolbar-title">${p.projectName || 'Nuovo progetto'}</span>
+        <span class="badge ${p.status === 'Completato' ? 'badge-green' : 'badge-blue'}">${p.status}</span>
+      </div>
+      <div class="toolbar-right">
+        <button class="btn btn--sm" onclick="duplicateProject(${activeIdx})">⧉ Duplica</button>
+        <button class="btn btn--sm btn--danger" onclick="deleteProject(${activeIdx})">✕ Elimina</button>
+        <button class="btn btn--green btn--sm" onclick="exportData()">↓ Esporta .js</button>
+      </div>
+    </div>
+
+    <!-- SCHEDA PROGETTO -->
+    <div class="card">
+      <div class="card-head">
+        <span class="card-head-title">Scheda progetto</span>
+        <span style="font-size:10px; color:var(--gray);">${activeIdx + 1} / ${DB.length}</span>
+      </div>
+      <div class="card-body">
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="field-codice">Codice accesso</label>
+            <input class="field-input mono" id="field-codice" value="${esc(p.codice)}" placeholder="es. CS2026APP" oninput="this.value=this.value.toUpperCase()"/>
+            <div style="font-size:10px; color:var(--gray); margin-top:4px;">Il cliente lo inserisce nel portale per accedere.</div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="field-client">Cliente</label>
+            <input class="field-input" id="field-client" value="${esc(p.client)}" placeholder="Nome cliente"/>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="field-projectName">Nome progetto</label>
+          <input class="field-input" id="field-projectName" value="${esc(p.projectName)}" placeholder="Descrizione sintetica"/>
+        </div>
+        <div class="field-row-3">
+          <div class="field">
+            <label class="field-label" for="field-status">Stato generale</label>
+            <select class="field-select" id="field-status">
+              <option ${p.status==='In corso'   ? 'selected':''}>In corso</option>
+              <option ${p.status==='Completato' ? 'selected':''}>Completato</option>
+              <option ${p.status==='Sospeso'    ? 'selected':''}>Sospeso</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label" for="field-lastUpdate">Ultimo aggiornamento</label>
+            <input class="field-input" type="date" id="field-lastUpdate" value="${p.lastUpdate || today()}"/>
+          </div>
+          <div class="field">
+            <label class="field-label" for="field-location">Luogo</label>
+            <input class="field-input" id="field-location" value="${esc(p.location)}" placeholder="Città, IT"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASI -->
+    <div class="card">
+      <div class="card-head">
+        <span class="card-head-title">Fasi del progetto</span>
+        <button class="btn btn--sm btn--blue" onclick="addPhase()">+ Fase</button>
+      </div>
+      <div class="card-body" style="padding:0; overflow-x:auto;">
+        <table class="phase-table">
+          <thead>
+            <tr>
+              <th style="width:28px;">#</th>
+              <th>Nome fase</th>
+              <th>Stato</th>
+              <th style="width:68px;">%</th>
+              <th>Descrizione</th>
+              <th style="width:52px;"></th>
+            </tr>
+          </thead>
+          <tbody id="phases-tbody">
+            ${(p.phases || []).map((ph, i) => phaseRow(ph, i)).join('')}
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:.75rem 1.25rem; border-top:1px solid var(--rule);">
+        <span style="font-size:10px; color:var(--gray);">Suggerimento: cambia lo stato dal menu a tendina — il colore si aggiorna in tempo reale. Il campo % è automaticamente 100 per "Completata" e 0 per "Non iniziata" se vuoi.</span>
+      </div>
+    </div>
+
+    <!-- AGGIORNAMENTI -->
+    <div class="card">
+      <div class="card-head">
+        <span class="card-head-title">Aggiornamenti per il cliente</span>
+        <button class="btn btn--sm btn--blue" onclick="addUpdate()">+ Aggiornamento</button>
+      </div>
+      <div class="card-body" id="updates-body">
+        ${(p.updates && p.updates.length)
+          ? p.updates.map((u, i) => updateItem(u, i)).join('')
+          : '<div class="empty">Nessun aggiornamento. Aggiungine uno.</div>'
+        }
+      </div>
+    </div>
+
+    <!-- ANTEPRIMA JSON -->
+    <div class="card">
+      <div class="card-head">
+        <span class="card-head-title">Anteprima JSON (sola lettura)</span>
+        <button class="btn btn--sm" onclick="refreshPreview()">↺ Aggiorna</button>
+      </div>
+      <div class="card-body" style="padding:0;">
+        <pre class="export-preview" id="json-preview">${jsonPreview()}</pre>
+      </div>
+    </div>
+  `;
+
+  // After render: attach phase-select live color
+  document.querySelectorAll('.phase-select').forEach(applyPhaseSelectColor);
+}
+
+/* ═══════════════════════════════════════════════
+   PHASE ROW TEMPLATE
+   ═══════════════════════════════════════════════ */
+function phaseRow(ph, i) {
+  return `<tr class="phase-row" draggable="false">
+    <td class="phase-num">${i + 1}</td>
+    <td><input class="phase-name-input" value="${esc(ph.name)}" placeholder="Nome fase"/></td>
+    <td>
+      <select class="phase-select ${ph.status}" onchange="applyPhaseSelectColor(this)">
+        <option value="completata"   ${ph.status==='completata'   ? 'selected':''}>✓ Completata</option>
+        <option value="in_corso"     ${ph.status==='in_corso'     ? 'selected':''}>◉ In corso</option>
+        <option value="non_iniziata" ${ph.status==='non_iniziata' ? 'selected':''}>○ Non iniziata</option>
+      </select>
+    </td>
+    <td><input class="phase-progress" type="number" min="0" max="100" value="${ph.progress}" placeholder="0"/></td>
+    <td><textarea class="phase-desc-input" placeholder="Descrizione breve della fase…">${esc(ph.description)}</textarea></td>
+    <td style="text-align:center;">
+      <button class="btn btn--sm btn--danger" onclick="deletePhaseRow(this)" title="Elimina fase">✕</button>
+    </td>
+  </tr>`;
+}
+
+function applyPhaseSelectColor(sel) {
+  sel.classList.remove('completata','in_corso','non_iniziata');
+  sel.classList.add(sel.value);
+}
+
+function deletePhaseRow(btn) {
+  btn.closest('tr').remove();
+  setSaveStatus('Modificato');
+}
+
+function addPhase() {
+  const tbody = document.getElementById('phases-tbody');
+  const i = tbody.querySelectorAll('tr').length;
+  const ph = { name: 'Nuova fase', status: 'non_iniziata', description: '', progress: 0 };
+  tbody.insertAdjacentHTML('beforeend', phaseRow(ph, i));
+  const newSel = tbody.querySelectorAll('.phase-select');
+  applyPhaseSelectColor(newSel[newSel.length - 1]);
+  setSaveStatus('Modificato');
+}
+
+/* ═══════════════════════════════════════════════
+   UPDATE ITEM TEMPLATE
+   ═══════════════════════════════════════════════ */
+function updateItem(u, i) {
+  return `<div class="update-item">
+    <div class="update-item-head">
+      <input type="date" data-field="date" value="${u.date || today()}" style="font-family:var(--mono); font-size:11px; border:none; background:transparent; color:var(--gray); outline:none; width:130px;"/>
+      <button class="btn btn--sm btn--danger" onclick="deleteUpdateItem(this)">✕</button>
+    </div>
+    <div class="update-item-body">
+      <input type="text" data-field="title" value="${esc(u.title)}" placeholder="Titolo aggiornamento" style="font-weight:600;"/>
+      <textarea data-field="desc" placeholder="Descrizione dettagliata…">${esc(u.description)}</textarea>
+    </div>
+  </div>`;
+}
+
+function addUpdate() {
+  syncActiveToDB();
+  const body = document.getElementById('updates-body');
+  // Remove empty state
+  const empty = body.querySelector('.empty');
+  if (empty) empty.remove();
+  const u = { date: today(), title: '', description: '' };
+  body.insertAdjacentHTML('afterbegin', updateItem(u, 0));
+  // Focus title
+  body.querySelector('[data-field="title"]').focus();
+  setSaveStatus('Modificato');
+}
+
+function deleteUpdateItem(btn) {
+  const item = btn.closest('.update-item');
+  confirm2('Elimina aggiornamento?', 'Questa azione è irreversibile.', () => {
+    item.remove();
+    const body = document.getElementById('updates-body');
+    if (!body.querySelector('.update-item')) {
+      body.innerHTML = '<div class="empty">Nessun aggiornamento.</div>';
+    }
+    setSaveStatus('Modificato');
+  });
+}
+
+/* ═══════════════════════════════════════════════
+   PROJECT ACTIONS
+   ═══════════════════════════════════════════════ */
+function newProject() {
+  syncActiveToDB();
+  const p = {
+    codice: 'NUOVO' + String(Date.now()).slice(-4),
+    projectName: 'Nuovo progetto',
+    client: '',
+    status: 'In corso',
+    lastUpdate: today(),
+    location: 'Capaccio Paestum, IT',
+    phases: [
+      { name: 'Brief',             status: 'non_iniziata', description: 'Raccolta delle esigenze, sopralluogo e definizione del programma funzionale.', progress: 0 },
+      { name: 'Concept',           status: 'non_iniziata', description: 'Elaborazione delle prime idee progettuali, moodboard e schemi distributivi.', progress: 0 },
+      { name: 'Sviluppo Progetto', status: 'non_iniziata', description: 'Definizione delle soluzioni architettoniche e dei materiali.', progress: 0 },
+      { name: 'Revisione Cliente', status: 'non_iniziata', description: 'Presentazione del progetto definitivo al cliente.', progress: 0 },
+      { name: 'Elaborati Finali',  status: 'non_iniziata', description: 'Produzione di tutti gli elaborati tecnici.', progress: 0 },
+      { name: 'Consegna',          status: 'non_iniziata', description: 'Consegna degli elaborati finali e chiusura del progetto.', progress: 0 }
+    ],
+    updates: []
+  };
+  DB.push(p);
+  activeIdx = DB.length - 1;
+  renderAll();
+  toast('✓ Nuovo progetto creato');
+}
+
+function duplicateProject(idx) {
+  syncActiveToDB();
+  const copy = JSON.parse(JSON.stringify(DB[idx]));
+  copy.codice = copy.codice + '_COPIA';
+  copy.projectName += ' (copia)';
+  DB.push(copy);
+  activeIdx = DB.length - 1;
+  renderAll();
+  toast('✓ Progetto duplicato');
+}
+
+function deleteProject(idx) {
+  confirm2(
+    'Elimina progetto?',
+    `"${DB[idx].projectName}" verrà rimosso. L'operazione è irreversibile.`,
+    () => {
+      DB.splice(idx, 1);
+      activeIdx = DB.length > 0 ? Math.min(idx, DB.length - 1) : null;
+      renderAll();
+      toast('Progetto eliminato');
+    }
+  );
+}
+
+/* ═══════════════════════════════════════════════
+   JSON PREVIEW
+   ═══════════════════════════════════════════════ */
+function jsonPreview() {
+  if (activeIdx === null || !DB[activeIdx]) return '(nessun progetto selezionato)';
+  return esc(JSON.stringify(DB[activeIdx], null, 2));
+}
+
+function refreshPreview() {
+  syncActiveToDB();
+  const el = document.getElementById('json-preview');
+  if (el) el.innerHTML = jsonPreview();
+}
+
+/* ═══════════════════════════════════════════════
+   CHANGE TRACKING
+   ═══════════════════════════════════════════════ */
+document.addEventListener('input', () => setSaveStatus('Modificato'));
+document.addEventListener('change', () => setSaveStatus('Modificato'));
+
+function setSaveStatus(txt) {
+  const el = document.getElementById('save-status');
+  if (!el) return;
+  el.textContent = txt;
+  el.style.color = txt === 'Esportato' ? '#a8ff78' : 'rgba(255,255,255,.5)';
+}
+
+/* ═══════════════════════════════════════════════
+   DRAG & DROP FILE
+   ═══════════════════════════════════════════════ */
+const dz = document.getElementById('drop-zone');
+if (dz) {
+  dz.addEventListener('dragover',  e => { e.preventDefault(); dz.classList.add('dragover'); });
+  dz.addEventListener('dragleave', () => dz.classList.remove('dragover'));
+  dz.addEventListener('drop', e => {
+    e.preventDefault(); dz.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => parseAndLoad(ev.target.result);
+    reader.readAsText(file);
+  });
+}
+
+// Also allow drop anywhere
+document.addEventListener('dragover', e => e.preventDefault());
+document.addEventListener('drop', e => {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  if (file && (file.name.endsWith('.js') || file.name.endsWith('.json'))) {
+    const reader = new FileReader();
+    reader.onload = ev => parseAndLoad(ev.target.result);
+    reader.readAsText(file);
+  }
+});
+
+/* ═══════════════════════════════════════════════
+   CONFIRM DIALOG
+   ═══════════════════════════════════════════════ */
+function confirm2(title, msg, cb) {
+  document.getElementById('confirm-title').textContent = title;
+  document.getElementById('confirm-msg').textContent   = msg;
+  confirmCb = cb;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function closeConfirm() {
+  document.getElementById('confirm-overlay').classList.remove('show');
+  confirmCb = null;
+}
+document.getElementById('confirm-ok').addEventListener('click', () => {
+  if (confirmCb) { confirmCb(); }
+  closeConfirm();
+});
+
+/* ═══════════════════════════════════════════════
+   TOAST
+   ═══════════════════════════════════════════════ */
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2800);
+}
+
+/* ═══════════════════════════════════════════════
+   UTILS
+   ═══════════════════════════════════════════════ */
+function today() {
+  return new Date().toISOString().slice(0, 10);
+}
+function esc(str) {
+  if (str === undefined || str === null) return '';
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+/* ═══════════════════════════════════════════════
+   AUTO-LOAD if dati_progetti.js is in same folder
+   ═══════════════════════════════════════════════ */
+window.addEventListener('load', () => {
+  if (window.PROGETTI_DATA && window.PROGETTI_DATA.length) {
+    DB = JSON.parse(JSON.stringify(window.PROGETTI_DATA));
+    activeIdx = 0;
+    renderAll();
+    toast('✓ dati_progetti.js caricato automaticamente');
+  }
+});
+</script>
+
+</body>
+</html>
