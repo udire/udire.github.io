@@ -1,0 +1,244 @@
+// ============================================================
+//  DATI PROGETTI — Marco Mastandrea Architetto
+//  Generato dal gestionale il 07/07/2026
+//
+//  STATI FASE:
+//    "completata"   → fase terminata
+//    "in_corso"     → fase attiva
+//    "non_iniziata" → fase futura
+// ============================================================
+
+window.PROGETTI_DATA = [
+  {
+    "codice": "CS2026APP",
+    "projectName": "Progetto di interni per un appartamento di ≈90mq",
+    "client": "Chiara e Simone",
+    "status": "In corso",
+    "lastUpdate": "2026-05-28",
+    "location": "Capaccio Paestum, IT",
+    "phases": [
+      {
+        "name": "Brief",
+        "status": "completata",
+        "description": "Raccolta delle esigenze, sopralluogo e definizione del programma funzionale.",
+        "progress": 100
+      },
+      {
+        "name": "Concept",
+        "status": "in_corso",
+        "description": "Elaborazione delle prime idee progettuali, moodboard e schemi distributivi.",
+        "progress": 40
+      },
+      {
+        "name": "Sviluppo Progetto",
+        "status": "non_iniziata",
+        "description": "Definizione delle soluzioni architettoniche, materiali, layout degli spazi interni ed esterni. Coordinamento con i consulenti strutturali e impiantistici.",
+        "progress": 0
+      },
+      {
+        "name": "Revisione Cliente",
+        "status": "non_iniziata",
+        "description": "Presentazione del progetto definitivo al cliente per approvazione e eventuali modifiche.",
+        "progress": 0
+      },
+      {
+        "name": "Elaborati Finali",
+        "status": "non_iniziata",
+        "description": "Produzione di tutti gli elaborati tecnici: piante, sezioni, prospetti, dettagli costruttivi e computo metrico.",
+        "progress": 0
+      },
+      {
+        "name": "Consegna",
+        "status": "non_iniziata",
+        "description": "Consegna degli elaborati finali, assistenza alla direzione lavori e chiusura del progetto.",
+        "progress": 0
+      }
+    ],
+    "updates": [
+      {
+        "date": "2026-05-28",
+        "title": "Concept approvato",
+        "description": "Il concept architettonico è stato approvato dal cliente con piccole osservazioni relative alla demolizione di tramezzi e alla modifica dell'impianto cucina. Si attendono riferimenti architettonici per lo sviluppo progettuale."
+      },
+      {
+        "date": "2026-05-02",
+        "title": "Sopralluogo completato",
+        "description": "Effettuato il rilievo metrico completo dell'area di intervento. Documentazione fotografica acquisita e restituzione planimetrica in corso."
+      },
+      {
+        "date": "2026-05-01",
+        "title": "Avvio progetto",
+        "description": "Prima riunione con il cliente. Definiti i requisiti principali e la tempistica indicativa del progetto."
+      }
+    ]
+  },
+  {
+    "codice": "PM2025",
+    "projectName": "Padiglione Monolite",
+    "client": "Fondazione Arte Contemporanea",
+    "status": "Completato",
+    "lastUpdate": "2026-04-15",
+    "location": "Venezia, IT",
+    "phases": [
+      {
+        "name": "Brief",
+        "status": "completata",
+        "description": "Raccolta delle esigenze.",
+        "progress": 100
+      },
+      {
+        "name": "Concept",
+        "status": "completata",
+        "description": "Elaborazione delle idee.",
+        "progress": 100
+      },
+      {
+        "name": "Sviluppo Progetto",
+        "status": "completata",
+        "description": "Sviluppo architettonico.",
+        "progress": 100
+      },
+      {
+        "name": "Revisione Cliente",
+        "status": "completata",
+        "description": "Approvazione progetto.",
+        "progress": 100
+      },
+      {
+        "name": "Elaborati Finali",
+        "status": "completata",
+        "description": "Elaborati tecnici.",
+        "progress": 100
+      },
+      {
+        "name": "Consegna",
+        "status": "completata",
+        "description": "Consegna completata.",
+        "progress": 100
+      }
+    ],
+    "updates": [
+      {
+        "date": "2026-04-15",
+        "title": "Progetto consegnato",
+        "description": "Tutti gli elaborati finali sono stati consegnati e approvati. Il progetto è ufficialmente chiuso."
+      }
+    ]
+  },
+  {
+    "codice": "MMASBUBA",
+    "projectName": "Residenza monofamiliare",
+    "client": "mm",
+    "status": "In corso",
+    "lastUpdate": "2026-06-07",
+    "location": "Capaccio Paestum, IT",
+    "phases": [
+      {
+        "name": "Brief",
+        "status": "in_corso",
+        "description": "Raccolta delle esigenze, sopralluogo e definizione del programma funzionale.",
+        "progress": 10
+      },
+      {
+        "name": "Concept",
+        "status": "non_iniziata",
+        "description": "Elaborazione delle prime idee progettuali, moodboard e schemi distributivi.",
+        "progress": 0
+      },
+      {
+        "name": "Sviluppo Progetto",
+        "status": "non_iniziata",
+        "description": "Definizione delle soluzioni architettoniche, materiali, layout degli spazi interni ed esterni. Coordinamento con i consulenti strutturali e impiantistici.",
+        "progress": 0
+      },
+      {
+        "name": "Revisione Cliente",
+        "status": "non_iniziata",
+        "description": "Presentazione del progetto definitivo al cliente per approvazione e eventuali modifiche.",
+        "progress": 0
+      },
+      {
+        "name": "Elaborati Finali",
+        "status": "non_iniziata",
+        "description": "Produzione di tutti gli elaborati tecnici: piante, sezioni, prospetti, dettagli costruttivi e computo metrico.",
+        "progress": 0
+      },
+      {
+        "name": "Consegna",
+        "status": "non_iniziata",
+        "description": "Consegna degli elaborati finali, assistenza alla direzione lavori e chiusura del progetto.",
+        "progress": 0
+      }
+    ],
+    "updates": [
+      {
+        "date": "2026-05-13",
+        "title": "Avvio progetto",
+        "description": "Prima riunione con il committente. L'avvio ufficiale del progetto é posticipato a 3 mesi dalla data odierna. Sono stati definiti i requisiti principali e alcuni spazi di riferimento."
+      },
+      {
+        "date": "2026-05-10",
+        "title": "Ricerca riferimenti",
+        "description": "Di tanto in tanto il sottoscritto, unitamente alla committente, si inoltrano reel carini. Sarà cura del progettista riconoscere la qualità architettonica dei manufatti senza confondersi con l'aesthetic di IG."
+      }
+    ]
+  },
+  {
+    "codice": "URB26AS",
+    "projectName": "Osservazioni su destinazione assegnata dal PUC",
+    "client": "Angela",
+    "status": "In corso",
+    "lastUpdate": "2026-06-30",
+    "location": "Capaccio Paestum, IT",
+    "phases": [
+      {
+        "name": "Brief",
+        "status": "in_corso",
+        "description": "Raccolta della documentazione contenuta nelle Norme Tecniche di Attuazione pubblicate con l'adozione del PUC al link (https://comune.capaccio.sa.it/puc/), e studio delle relazioni grafiche allegate.",
+        "progress": 10
+      },
+      {
+        "name": "Analisi del territorio",
+        "status": "non_iniziata",
+        "description": "Individuare punti deboli della proposta presentata nel PUC e rinforzarli delocalizzando l'intervento su altri lotti.",
+        "progress": 0
+      },
+      {
+        "name": "Relazione urbanistica",
+        "status": "non_iniziata",
+        "description": "A supporto della delocalizzazione degli interventi, presentare una ricca documentazione su come il territorio abbia necessità di svilupparsi verso altri luoghi, magari un nuovo quartiere popolare. Rinforzare la difesa evidenziando l'importanza del terreno nei pressi della propria abitazione.",
+        "progress": 0
+      },
+      {
+        "name": "Revisione Cliente",
+        "status": "non_iniziata",
+        "description": "Presentazione della relazione al cliente per approvazione e eventuali modifiche.",
+        "progress": 0
+      },
+      {
+        "name": "Elaborati Finali",
+        "status": "non_iniziata",
+        "description": "Produzione di tutti gli elaborati finali: osservazione, relazione urbanistica, stralci cartografici.",
+        "progress": 0
+      },
+      {
+        "name": "Consegna",
+        "status": "non_iniziata",
+        "description": "Consegna degli elaborati finali entro il 29 agosto 2026",
+        "progress": 0
+      }
+    ],
+    "updates": [
+      {
+        "date": "2026-07-06",
+        "title": "Avviso avvenuta pubblicazione sul BURC",
+        "description": "A decorrere da oggi 6 Luglio, decorrono i 60gg di tempo per presentare le osservazioni (https://portale-capaccio.cloud.cstsistemisud.it/web/trasparenza/albo-pretorio?p_p_id=detailscontroller_WAR_maggiolialbopretorioportlet&p_p_lifecycle=2&p_p_state=normal&p_p_mode=view&p_p_resource_id=downloadAllegato&p_p_cacheability=cacheLevelPage&p_p_col_id=column-2&p_p_col_count=1&_detailscontroller_WAR_maggiolialbopretorioportlet_targetId=3&_detailscontroller_WAR_maggiolialbopretorioportlet_backURL=https%3A%2F%2Fportale-capaccio.cloud.cstsistemisud.it%2Fweb%2Ftrasparenza%2Falbo-pretorio%3Fp_p_id%3Ddetailscontroller_WAR_maggiolialbopretorioportlet%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dcolumn-2%26p_p_col_count%3D1%26_detailscontroller_WAR_maggiolialbopretorioportlet_isBackURL%3Dtrue%26_detailscontroller_WAR_maggiolialbopretorioportlet_targetId%3D3%26_detailscontroller_WAR_maggiolialbopretorioportlet_attoRegistro%3DENTRAMBI%26_detailscontroller_WAR_maggiolialbopretorioportlet_documentoId%3D55985%26_detailscontroller_WAR_maggiolialbopretorioportlet_profiloId%3D2001%26p_r_p_564233524_menuItemId%3D101&_detailscontroller_WAR_maggiolialbopretorioportlet_serial=2099235&_detailscontroller_WAR_maggiolialbopretorioportlet_nome=Avviso_di_avvenuto_deposito_signed_ori.stamped.pdf)"
+      },
+      {
+        "date": "2026-05-13",
+        "title": "Studio dei nuovi elaborati",
+        "description": "Per presentare le osservazioni o i contributi al Piano Urbanistico Comunale (PUC) di Capaccio Paestum, il termine standard previsto dalla normativa regionale è di 60 giorni dalla data di pubblicazione dell'avviso di adozione, avvenuta ieri 29 Giugno 2026. L'obiettivo è di: - individuare punti deboli della proposta presentata nel PUC e rinforzarli delocalizzando l'intervento su altri lotti; - A supporto della delocalizzazione degli interventi, presentare una ricca documentazione su come il territorio abbia necessità di svilupparsi verso altri luoghi, magari un nuovo quartiere popolare. Rinforzare la difesa evidenziando l'importanza del terreno nei pressi della propria abitazione; - produzione e presentazione di tutti gli elaborati finali: osservazione, relazione urbanistica, stralci cartografici."
+      }
+    ]
+  }
+];
