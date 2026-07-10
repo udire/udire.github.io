@@ -1,6 +1,6 @@
 // ============================================================
 //  DATI PROGETTI — Marco Mastandrea Architetto
-//  Generato dal gestionale il 07/07/2026
+//  Generato dal gestionale il 10/07/2026
 //
 //  STATI FASE:
 //    "completata"   → fase terminata
@@ -188,7 +188,7 @@ window.PROGETTI_DATA = [
     "projectName": "Osservazioni su destinazione assegnata dal PUC",
     "client": "Angela",
     "status": "In corso",
-    "lastUpdate": "2026-06-30",
+    "lastUpdate": "2026-07-10",
     "location": "Capaccio Paestum, IT",
     "phases": [
       {
@@ -230,9 +230,19 @@ window.PROGETTI_DATA = [
     ],
     "updates": [
       {
+        "date": "2026-07-10",
+        "title": "Elaborazione dei dati catastali",
+        "description": "Visure dei soggetti coinvolti, sovrapposizioni cartografiche, verifica dimensionale dei lotti e capacità edificatoria."
+      },
+      {
+        "date": "2026-07-09",
+        "title": "Consultazione delle nuove Norme Tecniche di Attuazione",
+        "description": "In questa fase sono state raccolte le informazioni contenute nelle nuove NTA e alcuni dati legati al completamento del vecchio Piano per l'Edilizia Economica e Popolare (PEEP) contenuta nel PRG del '92."
+      },
+      {
         "date": "2026-07-06",
         "title": "Avviso avvenuta pubblicazione sul BURC",
-        "description": "A decorrere da oggi 6 Luglio, decorrono i 60gg di tempo per presentare le osservazioni (urly.it/31g48m)"
+        "description": "Da oggi 6 Luglio decorrono i 60gg di tempo per presentare le osservazioni (urly.it/31g48m)"
       },
       {
         "date": "2026-05-13",
