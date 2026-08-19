@@ -184,71 +184,76 @@ window.PROGETTI_DATA = [
     ]
   },
   {
-    "codice": "URB26AS",
-    "projectName": "Osservazioni su destinazione assegnata dal PUC",
-    "client": "Angela",
-    "status": "In corso",
-    "lastUpdate": "2026-07-10",
-    "location": "Capaccio Paestum, IT",
-    "phases": [
-      {
-        "name": "Brief",
-        "status": "completata",
-        "description": "Raccolta della documentazione contenuta nelle Norme Tecniche di Attuazione pubblicate con l'adozione del PUC al link (https://comune.capaccio.sa.it/puc/), e studio delle relazioni grafiche allegate.",
-        "progress": 100
-      },
-      {
-        "name": "Analisi del territorio",
-        "status": "in_corso",
-        "description": "Individuare punti deboli della proposta presentata nel PUC e rinforzarli delocalizzando l'intervento su altri lotti.",
-        "progress": 30
-      },
-      {
-        "name": "Relazione urbanistica",
-        "status": "non_iniziata",
-        "description": "A supporto della delocalizzazione degli interventi, presentare una ricca documentazione su come il territorio abbia necessità di svilupparsi verso altri luoghi, magari un nuovo quartiere popolare. Rinforzare la difesa evidenziando l'importanza del terreno nei pressi della propria abitazione.",
-        "progress": 0
-      },
-      {
-        "name": "Revisione Cliente",
-        "status": "non_iniziata",
-        "description": "Presentazione della relazione al cliente per approvazione e eventuali modifiche.",
-        "progress": 0
-      },
-      {
-        "name": "Elaborati Finali",
-        "status": "non_iniziata",
-        "description": "Produzione di tutti gli elaborati finali: osservazione, relazione urbanistica, stralci cartografici.",
-        "progress": 0
-      },
-      {
-        "name": "Consegna",
-        "status": "non_iniziata",
-        "description": "Consegna degli elaborati finali entro il 29 agosto 2026",
-        "progress": 0
-      }
-    ],
-    "updates": [
-      {
-        "date": "2026-07-10",
-        "title": "Elaborazione dei dati catastali",
-        "description": "Visure dei soggetti coinvolti, sovrapposizioni cartografiche, verifica dimensionale dei lotti e capacità edificatoria."
-      },
-      {
-        "date": "2026-07-09",
-        "title": "Consultazione delle nuove Norme Tecniche di Attuazione",
-        "description": "In questa fase sono state raccolte le informazioni contenute nelle nuove NTA e alcuni dati legati al completamento del vecchio Piano per l'Edilizia Economica e Popolare (PEEP) contenuta nel PRG del '92."
-      },
-      {
-        "date": "2026-07-06",
-        "title": "Avviso avvenuta pubblicazione sul BURC",
-        "description": "Da oggi 6 Luglio decorrono i 60gg di tempo per presentare le osservazioni (urly.it/31g48m)"
-      },
-      {
-        "date": "2026-05-13",
-        "title": "Studio dei nuovi elaborati",
-        "description": "Per presentare le osservazioni o i contributi al Piano Urbanistico Comunale (PUC) di Capaccio Paestum, il termine standard previsto dalla normativa regionale è di 60 giorni dalla data di pubblicazione dell'avviso di adozione, avvenuta ieri 29 Giugno 2026. L'obiettivo è di: - individuare punti deboli della proposta presentata nel PUC e rinforzarli delocalizzando l'intervento su altri lotti; - A supporto della delocalizzazione degli interventi, presentare una ricca documentazione su come il territorio abbia necessità di svilupparsi verso altri luoghi, magari un nuovo quartiere popolare. Rinforzare la difesa evidenziando l'importanza del terreno nei pressi della propria abitazione; - produzione e presentazione di tutti gli elaborati finali: osservazione, relazione urbanistica, stralci cartografici."
-      }
-    ]
-  }
+  "codice": "URB26AS",
+  "projectName": "Osservazioni su destinazione assegnata dal PUC",
+  "client": "Angela",
+  "status": "Completato",
+  "lastUpdate": "2026-08-11",
+  "location": "Capaccio Paestum, IT",
+  "phases": [
+    {
+      "name": "Brief",
+      "status": "completata",
+      "description": "Raccolta della documentazione contenuta nelle Norme Tecniche di Attuazione pubblicate con l'adozione del PUC al link (https://comune.capaccio.sa.it/puc/), e studio delle relazioni grafiche allegate.",
+      "progress": 100
+    },
+    {
+      "name": "Analisi del territorio",
+      "status": "completata",
+      "description": "Individuare punti deboli della proposta presentata nel PUC e rinforzarli delocalizzando l'intervento su altri lotti.",
+      "progress": 100
+    },
+    {
+      "name": "Relazione urbanistica",
+      "status": "completata",
+      "description": "A supporto della delocalizzazione degli interventi, presentare una ricca documentazione su come il territorio abbia necessità di svilupparsi verso altri luoghi, magari un nuovo quartiere popolare. Rinforzare la difesa evidenziando l'importanza del terreno nei pressi della propria abitazione.",
+      "progress": 100
+    },
+    {
+      "name": "Revisione Cliente",
+      "status": "non_iniziata",
+      "description": "Presentazione della relazione al cliente per approvazione e eventuali modifiche.",
+      "progress": 0
+    },
+    {
+      "name": "Elaborati Finali",
+      "status": "completata",
+      "description": "Produzione di tutti gli elaborati finali: osservazione, relazione urbanistica, stralci cartografici.",
+      "progress": 100
+    },
+    {
+      "name": "Consegna",
+      "status": "non_iniziata",
+      "description": "Consegna degli elaborati finali entro il 29 agosto 2026",
+      "progress": 0
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-11",
+      "title": "Chiusura del progetto per revoca in autotutela del PUC",
+      "description": "DELIBERAZIONE DELLA GIUNTA COMUNALE N° 317 del 11/08/2026"
+    },
+    {
+      "date": "2026-07-10",
+      "title": "Elaborazione dei dati catastali",
+      "description": "Visure dei soggetti coinvolti, sovrapposizioni cartografiche, verifica dimensionale dei lotti e capacità edificatoria."
+    },
+    {
+      "date": "2026-07-09",
+      "title": "Consultazione delle nuove Norme Tecniche di Attuazione",
+      "description": "In questa fase sono state raccolte le informazioni contenute nelle nuove NTA e alcuni dati legati al completamento del vecchio Piano per l'Edilizia Economica e Popolare (PEEP) contenuta nel PRG del '92."
+    },
+    {
+      "date": "2026-07-06",
+      "title": "Avviso avvenuta pubblicazione sul BURC",
+      "description": "Da oggi 6 Luglio decorrono i 60gg di tempo per presentare le osservazioni (urly.it/31g48m)"
+    },
+    {
+      "date": "2026-05-13",
+      "title": "Studio dei nuovi elaborati",
+      "description": "Per presentare le osservazioni o i contributi al Piano Urbanistico Comunale (PUC) di Capaccio Paestum, il termine standard previsto dalla normativa regionale è di 60 giorni dalla data di pubblicazione dell'avviso di adozione, avvenuta ieri 29 Giugno 2026. L'obiettivo è di: - individuare punti deboli della proposta presentata nel PUC e rinforzarli delocalizzando l'intervento su altri lotti; - A supporto della delocalizzazione degli interventi, presentare una ricca documentazione su come il territorio abbia necessità di svilupparsi verso altri luoghi, magari un nuovo quartiere popolare. Rinforzare la difesa evidenziando l'importanza del terreno nei pressi della propria abitazione; - produzione e presentazione di tutti gli elaborati finali: osservazione, relazione urbanistica, stralci cartografici."
+    }
+  ]
+}
 ];
