@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Per te ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fdf6f5; /* Un rosa/beige molto delicato e caldo */
+            color: #4a4a4a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        /* --- VISTA BUSTA (Chiusa) --- */
+        #envelope-view {
+            cursor: pointer;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .envelope-icon {
+            font-size: 80px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .instruction {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #8b7373;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* --- VISTA LETTERA (Aperta) --- */
+        #letter-view {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            translate: -50% -50%;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        #letter-view.open {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .prescription-box {
+            background-color: #fdf9eb; /* Giallino caldo */
+            border-left: 4px solid #f2c94c;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+        }
+
+        .prescription-title {
+            font-weight: bold;
+            color: #b8860b;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .prescription-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .prognosis {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #d35400;
+        }
+
+        /* Nasconde la busta quando si apre */
+        .hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Busta iniziale -->
+        <div id="envelope-view" onclick="openLetter()">
+            <div class="envelope-icon">💌</div>
+            <div class="instruction">Aprire quando ti senti uno schifo</div>
+        </div>
+
+        <!-- Messaggio interno -->
+        <div id="letter-view">
+            <p class="intro-text">
+                Questa pagina non serve a niente.<br>Tranne ricordarti che c’è qualcuno che ti vuole bene e sta facendo il tifo perché domani tu stia un po’ meglio ❤️
+            </p>
+
+            <div class="prescription-box">
+                <div class="prescription-title">
+                    <span>🩺</span> ORDINE DEI MEDICI DI SALERNO
+                </div>
+                <div class="prescription-text">
+                    Restare rigorosamente con la coperta + bere acqua + kiwi gialli e omogeneizzati.
+                </div>
+                <div class="prognosis">
+                    Prognosi: quanto più breve possibile.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function openLetter() {
+            // Nasconde la busta
+            document.getElementById('envelope-view').classList.add('hidden');
+            
+            // Aspetta un attimo e mostra la lettera
+            setTimeout(() => {
+                document.getElementById('letter-view').classList.add('open');
+            }, 300);
+        }
+    </script>
+</body>
+</html>
