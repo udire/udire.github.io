@@ -172,6 +172,11 @@ window.PROGETTI_DATA = [
     ],
     "updates": [
       {
+        "date": "2026-10-15",
+        "title": "Aggiornamento sito di sub progetto",
+        "description": "Prima deviazione progettuale: poiché la data di inizio lavori prevista si avvicina, la committenza ha individuato un nuovo luogo temporaneo destinato ad ospitare alcune delle funzioni che verranno previste in sede del progetto finale MMASHAUS. Tale circostanza ha reso necessario posticipare il brifef dell'unità indipendente monofamiliare a favore di una soluzione più contenuta di 70mq circa. La committenza e il progettista sceglieranno la data di incontro entro il 31/10/2026."
+      },
+      {
         "date": "2026-09-16",
         "title": "Eccezione",
         "description": "In un giorno di febbre, per AS, e non particolarmente gioioso, per MM, la commitenza ha anticipato l'avvio del progetto definendo preferenze estetiche su alcuni oggi e ambienti interni. Si è pertanto concordato che:\n- il letto non sarà modello \"contenitore\" ma con supporti inferiori, \"piedini\", le tonalità cromatiche accettate, nel suo complesso, sono il grigio, il verde, il bianco e il legno. \n- l'intero progetto conterrà ambienti neutri e ambienti con colori a contrasto\n- la casa si svilupperà al piano primo, lasciando al piano terreno l'esclusiva competenza di accogliere ospiti, lasciare oggetti al sicuro e generare un ambiente filtro prima dell'ingresso, aumentando il livello di sicurezza generale. Si veda: Villa Kogelhof (Paul de Ruiter Architects); Floating House (Benthem Crouwel Architects)\n\nTali decisioni non hanno implicato una ulteriore modifica alla data di inizio, poiché quella sarà il momento in cui, ufficialmente e su carta, si parlerà di dimensioni e quantità, caratteristiche alla base per la definizione del progetto architettonico.\n\nNota: si sottolinea che durante la stesura progettuale, i committenti dovranno consultare opere realizzate dagli architetti più importanti al fine di cogliere spunti ed esigenze adesso inesplorate o non diffuse."
